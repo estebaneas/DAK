@@ -1,0 +1,140 @@
+
+hr{
+    margin: 5px;
+    background: black;
+    border: 0;
+    height: 1px;
+}
+
+body 
+{
+    margin: 0;    
+}
+
+
+.pagina{
+    position: relative;
+    width: 500px;
+    border: black 1px solid;
+    padding:10px
+}
+
+.info{
+    margin-bottom: 5px;
+}
+
+
+.fecha
+{
+    border: black 1px solid;
+}
+
+
+.DAK :last-child{
+    margin-bottom: 0;
+}
+.cli :last-child{
+    margin-bottom: 0;
+}
+
+
+
+.total{
+    width: 168px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.total .fila {
+    width: 100px;
+    height: 80  px;
+    overflow: hidden;
+}
+
+.total .fila:last-child{
+    width: 60;
+}
+.total .pesos{
+    width: 8px;
+}
+
+.total .fila {
+ float: left;
+}
+
+.total :last-child.fila{
+    text-align: right;
+}
+
+.fecha{
+    width: 168px ;
+    height: 60px;
+    border-radius: 3px;
+    right: 0px;
+    top: 0px;
+    margin-top: 10px;
+    margin-right:  10px;
+    position: absolute;
+
+}
+.top{
+    background: rgb(212, 212, 212);
+    height: 24px;
+    border-radius: 2px 2px 0px 0px;
+}
+
+.top :first-child{
+    border-right: 1px solid black;
+    margin-right: -1px;
+}
+.top :last-child{
+    border-left: 1px solid black;
+    margin-left: -1px;
+}
+.top div{
+text-align: center;
+display: inline-block;
+float: left;
+height: 24px;
+width:  56;
+
+}
+.bot :first-child{
+    border-right: 1px solid black;
+    margin-right: -1px;
+}
+.bot :last-child{
+    border-left: 1px solid black;
+    margin-left: -1px;
+}
+
+.bot div{
+    line-height: 36px;
+    width: 56px;
+    text-align: center;
+    display: inline-block;
+    height:36px;
+    float: left;
+}
+
+
+
+.fecha .fila:first-child div{
+    height:24px ;
+    line-height: 24px;
+    /*background: rgb(202, 202, 202);*/
+
+}
+
+
+.ini{
+
+
+}
+.fin{
+
+   
+ }

@@ -42,6 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AutenticationRepository.cs" />
+    <Compile Include="Repositories\FacturaRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonSolution\CommonSolution.csproj">
+      <Project>{5696494b-7e59-48d8-8ec7-73b70d9a90be}</Project>
+      <Name>CommonSolution</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

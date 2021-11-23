@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\FacturaDto.cs" />
+    <Compile Include="Dtos\PaqueteDto.cs" />
+    <Compile Include="COL_ENUMS.cs" />
+    <Compile Include="PlantillaPDF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

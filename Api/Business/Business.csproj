@@ -41,7 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClasses\Pago.cs" />
+    <Compile Include="Strategies\PagoConcreteStrategies\Debito.cs" />
+    <Compile Include="Strategies\PagoConcreteStrategies\Efectivo.cs" />
+    <Compile Include="Strategies\PagoConcreteStrategies\MercadoPago.cs" />
+    <Compile Include="Strategies\PagoConcreteStrategies\Visa.cs" />
+    <Compile Include="FacturaBusiness.cs" />
+    <Compile Include="Interfaces\IPago.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonSolution\CommonSolution.csproj">
+      <Project>{5696494b-7e59-48d8-8ec7-73b70d9a90be}</Project>
+      <Name>CommonSolution</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{826eb960-d03d-4d9f-aebf-4548d45582e6}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
