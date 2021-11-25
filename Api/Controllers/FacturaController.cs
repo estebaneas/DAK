@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Business;
+using CommonSolution.Dtos;
+using DataAccess.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,12 +12,12 @@ namespace Api.Controllers
 {
     public class FacturaController : ApiController
     {
-        // GET: Factura
-        [HttpGet]
-        [ActionName("Test")]
-        public string facutraTest()
+        FacturaBusiness facutraBs;
+        FacturaController()
         {
-            return "FacturaTestFuncionando";
+            this.facutraBs = new FacturaBusiness();
         }
+
+
     }
 }

@@ -1,4 +1,6 @@
-﻿using CommonSolution.Dtos;
+﻿using Business.BusinessCollection;
+using CommonSolution.Dtos;
+using CommonSolution;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,22 +12,27 @@ namespace Api.Controllers
 {
     public class PaqueteController : ApiController
     {
-        // GET: Paquete
-  
-        [HttpGet]
-        [ActionName("Test")]
-        public string facutraTest()
+        BusinessCollection BColl;
+        public PaqueteController()
         {
-            return "PaqueteControllerFunciona";
+            this.BColl = new BusinessCollection();
         }
-
 
         [HttpPost]
-        [ActionName("Test")]
-        public bool ProcesarPaquete([FromBody]object paquete)
+        [ActionName("ProcesarPaquete")]
+        public List<Mensaje> Procesar([FromBody]PaqueteFactura PaqueteFactura)
         {
-            return true;
+            List<Mensaje> respuestas = new List<Mensaje>();
+            Mensaje respuestaFactura = BColl.getFacturaB().pagarFactura(PaqueteFactura.factura);
+            respuestas.Add(respuestaFactura);
+            bool aprobado = respuestaFactura.boolean;
+            if(aprobado)
+            {
+                respuestas.Add(BColl.getPaqueteB().registrarPaquete(PaqueteFactura.paquete, (int)respuestaFactura.numero));
+            }
+            return respuestas;
         }
+        
 
     }
 }

@@ -1,23 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CommonSolution.Dtos
 {
     public class PaqueteDto
     {
-        public int id { get; set; }
-        public string documentoRemitente { get; set; }
-        public string documentoDestinatario { get; set; }
-        public int peso { get; set; }
-        public int numeroFactura { get; set; }
-        public DateTime fechaRecibido{ get; set; }
-        public DateTime fechaEnviado { get; set; }
-        public DateTime fechaEntregado { get; set; }
-        public float distancia { get; set; }
-        public int estado { get; set; }
-        public int tamaño { get; set; }
+        public int ID { get; set; }
+        public double Peso { get; set; }
+        public DateTime FechaRecivido { get; set; }
+        public DateTime? FechaEnviado { get; set; }
+        public DateTime FechaCambioEstado { get; set; }
+        public string Calle { get; set; }
+        public string Localidad { get; set; }
+        public string DetalleDireccion { get; set; }
+        public int? Distancia { get; set; }
+        public int Estado { get; set; }
+        public string DocumentoRemitente { get; set; }
+        public string DocumentoDestinatario { get; set; }
+        public int ID_Zona { get; set; }
+        public int ID_Condado { get; set; }
+        public int Numero_Factura { get; set; }
+        public int Tamano { get; set; }
     }
 }

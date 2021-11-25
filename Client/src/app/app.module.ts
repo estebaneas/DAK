@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 // Importar Rutas
 import { ROUTES } from './app.routes';
 import { ReactiveFormsModule } from '@angular/forms';
+import { IngresarPaqueteComponent } from './components/paquete/ingresar-paquete/ingresar-paquete.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ClientUpdateComponent,
     ClientListComponent,
     LoginComponent,
+    IngresarPaqueteComponent,
   ],
   imports: [
     BrowserModule,

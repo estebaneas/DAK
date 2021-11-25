@@ -5,35 +5,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Model;
-using System.Data;
-using System.Data.Entity;
 using DataAccess.Mappers;
-
+using System.Data.Entity;
+using System.Data;
 namespace DataAccess.Repositories
 {
-    public class FacturaRepository
+    public class PaqueteRepository
     {
-        private FacturaMapper FacturaM;
-        public FacturaRepository ()
+        private PaqueteMapper PaqueteM;
+        public PaqueteRepository()
         {
-            this.FacturaM = new FacturaMapper();
+            this.PaqueteM = new PaqueteMapper();
         }
-        public int? registrarFacutra(FacturaDto factura)
+        public int? registrarPaquete(PaqueteDto paquete)
         {
-            Factura nFactura = this.FacturaM.toEntity(factura);
+            Paquete nPaquete = this.PaqueteM.toEntity(paquete);
             using (DAKEntities context = new DAKEntities())
             {
                 using (DbContextTransaction trans = context.Database.BeginTransaction(IsolationLevel.ReadCommitted))
                 {
-                   
                     try
                     {
-                        context.Factura.Add(nFactura);
+                        context.Paquete.Add(nPaquete);
                         context.SaveChanges();
                         trans.Commit();
-                        return nFactura.Numero;
-                    }
-                    catch(Exception ex)
+                        return nPaquete.ID;
+                    }catch(Exception ex)
                     {
                         trans.Rollback();
                         return null;

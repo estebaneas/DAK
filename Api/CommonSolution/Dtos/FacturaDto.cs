@@ -8,10 +8,10 @@ namespace CommonSolution.Dtos
 {
     public class FacturaDto
     {
-        public int numero { get; set; }
-        public double monto { get; set; }
-        public double precioFinal { get; set; }
-        public DateTime fechaPago { get; set; }
-        public int pago;
+        public int Numero { get; set; }
+        public double Monto { get; set; }
+        public DateTime FechaDepago { get; set; }
+        public double MontoFinal { get; set; }
+        public int TipoPago { get; set; }
     }
 }
