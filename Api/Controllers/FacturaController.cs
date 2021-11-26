@@ -18,6 +18,12 @@ namespace Api.Controllers
             this.facutraBs = new FacturaBusiness();
         }
 
+        [HttpPost]
+        [ActionName ("PagarFactura")]
+        public FacturaDto PagaarFactura([FromBody] FacturaDto factura)
+        {
+            return  this.facutraBs.pagarFactura(factura);
+        }
 
     }
 }

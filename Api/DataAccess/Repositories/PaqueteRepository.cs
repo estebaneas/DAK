@@ -17,7 +17,7 @@ namespace DataAccess.Repositories
         {
             this.PaqueteM = new PaqueteMapper();
         }
-        public int? registrarPaquete(PaqueteDto paquete)
+        public PaqueteDto registrarPaquete(PaqueteDto paquete)
         {
             Paquete nPaquete = this.PaqueteM.toEntity(paquete);
             using (DAKEntities context = new DAKEntities())
@@ -29,7 +29,7 @@ namespace DataAccess.Repositories
                         context.Paquete.Add(nPaquete);
                         context.SaveChanges();
                         trans.Commit();
-                        return nPaquete.ID;
+                        return this.PaqueteM.toDto(nPaquete);
                     }catch(Exception ex)
                     {
                         trans.Rollback();

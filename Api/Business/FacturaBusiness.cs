@@ -17,10 +17,8 @@ namespace Business
         {
             this.FacturaRepo = new FacturaRepository();
         }
-        public Mensaje pagarFactura(FacturaDto factura)
+        public FacturaDto pagarFactura(FacturaDto factura)
         {
-            Mensaje mensaje = new Mensaje();
-            mensaje.descripcion = "{Numero = numero de factura},{Bool = factura aprobada = true, no aprobada = fase}";
             IPago pago;
             bool aprobado;
             switch (factura.TipoPago)
@@ -39,27 +37,16 @@ namespace Business
                     break;
             }
 
-            
             aprobado = pago.procesarPago(factura);
             if (aprobado)
             {
-                mensaje.boolean = true;
                 factura.FechaDepago = DateTime.Now;
-                int? numFactura = this.FacturaRepo.registrarFacutra(factura);
-                if(numFactura!=null)
-                {
-                    mensaje.numero = numFactura;
-                }
-                else
-                {
-                    mensaje.colErrores.Add("Hubo un problema con la base de datos al ingresar factura");
-                }
+                return this.FacturaRepo.registrarFacutra(factura);
             }
             else
             {
-                mensaje.colErrores.Add("No se pudo completar el pago");
+                return null;
             }
-            return mensaje;
         }
     }
 }

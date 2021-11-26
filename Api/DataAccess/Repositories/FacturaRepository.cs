@@ -18,7 +18,7 @@ namespace DataAccess.Repositories
         {
             this.FacturaM = new FacturaMapper();
         }
-        public int? registrarFacutra(FacturaDto factura)
+        public FacturaDto registrarFacutra(FacturaDto factura)
         {
             Factura nFactura = this.FacturaM.toEntity(factura);
             using (DAKEntities context = new DAKEntities())
@@ -31,7 +31,7 @@ namespace DataAccess.Repositories
                         context.Factura.Add(nFactura);
                         context.SaveChanges();
                         trans.Commit();
-                        return nFactura.Numero;
+                        return this.FacturaM.ToDto(nFactura);
                     }
                     catch(Exception ex)
                     {

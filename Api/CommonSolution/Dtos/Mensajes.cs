@@ -12,7 +12,6 @@ namespace CommonSolution.Dtos
         public int? numero { get; set; }
         public bool boolean { get; set; }
         public string mensaje { get; set; }
-
         public List<string> colErrores { get; set; }
     }
 }
