@@ -12,7 +12,7 @@ namespace Api.Controllers
         [ActionName("Test")]
         public string facutraTest()
         {
-            return "AutenticationFuncionando";
+            return "AutenticationFuncionandooo";
         }
         // GET: Autentication
 
