@@ -28,10 +28,10 @@ namespace DataAccess.Model
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Condado> Condado { get; set; }
         public virtual DbSet<Empresa> Empresa { get; set; }
-        public virtual DbSet<Factura> Factura { get; set; }
         public virtual DbSet<Persona> Persona { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Zona> Zona { get; set; }
+        public virtual DbSet<Factura> Factura { get; set; }
         public virtual DbSet<Paquete> Paquete { get; set; }
+        public virtual DbSet<Zona> Zona { get; set; }
     }
 }

@@ -36,7 +36,7 @@
           <Key>
             <PropertyRef Name="Numero" />
           </Key>
-          <Property Name="Numero" Type="int" Nullable="false" />
+          <Property Name="Numero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Monto" Type="float" Nullable="false" />
           <Property Name="FechaDepago" Type="date" Nullable="false" />
           <Property Name="MontoFinal" Type="float" Nullable="false" />
@@ -45,7 +45,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Peso" Type="float" Nullable="false" />
           <Property Name="FechaRecivido" Type="date" Nullable="false" />
           <Property Name="FechaEnviado" Type="date" />
@@ -84,7 +84,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Cliente_Condado">
@@ -264,16 +264,6 @@
           <Property Name="Rut" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Cliente" Relationship="Self.FK_Empresa_Cliente" FromRole="Empresa" ToRole="Cliente" />
         </EntityType>
-        <EntityType Name="Factura">
-          <Key>
-            <PropertyRef Name="Numero" />
-          </Key>
-          <Property Name="Numero" Type="Int32" Nullable="false" />
-          <Property Name="Monto" Type="Double" Nullable="false" />
-          <Property Name="FechaDepago" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="MontoFinal" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Paquete" Relationship="DAKModel.FK_Paquete_Factura" FromRole="Factura" ToRole="Paquete" />
-        </EntityType>
         <EntityType Name="Persona">
           <Key>
             <PropertyRef Name="Documento" />
@@ -292,14 +282,6 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Zona">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Paquete" Relationship="DAKModel.FK_Paquete_Zona" FromRole="Zona" ToRole="Paquete" />
         </EntityType>
         <Association Name="FK_Cliente_Condado">
           <End Role="Condado" Type="Self.Condado" Multiplicity="1" />
@@ -341,10 +323,8 @@
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Condado" EntityType="Self.Condado" />
           <EntitySet Name="Empresa" EntityType="Self.Empresa" />
-          <EntitySet Name="Factura" EntityType="Self.Factura" />
           <EntitySet Name="Persona" EntityType="Self.Persona" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Zona" EntityType="Self.Zona" />
           <AssociationSet Name="FK_Cliente_Condado" Association="Self.FK_Cliente_Condado">
             <End Role="Condado" EntitySet="Condado" />
             <End Role="Cliente" EntitySet="Cliente" />
@@ -357,7 +337,9 @@
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Persona" EntitySet="Persona" />
           </AssociationSet>
+          <EntitySet Name="Factura" EntityType="DAKModel.Factura" />
           <EntitySet Name="Paquete" EntityType="DAKModel.Paquete" />
+          <EntitySet Name="Zona" EntityType="DAKModel.Zona" />
           <AssociationSet Name="FK_Paquete_Cliente" Association="DAKModel.FK_Paquete_Cliente">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Paquete" EntitySet="Paquete" />
@@ -379,11 +361,21 @@
             <End Role="Paquete" EntitySet="Paquete" />
           </AssociationSet>
           </EntityContainer>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="Numero" />
+          </Key>
+          <Property Name="Numero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Monto" Type="Double" Nullable="false" />
+          <Property Name="FechaDepago" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MontoFinal" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Paquete" Relationship="DAKModel.FK_Paquete_Factura" FromRole="Factura" ToRole="Paquete" />
+        </EntityType>
         <EntityType Name="Paquete">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Peso" Type="Double" Nullable="false" />
           <Property Name="FechaRecivido" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FechaEnviado" Type="DateTime" Precision="0" />
@@ -404,6 +396,14 @@
           <NavigationProperty Name="Condado" Relationship="DAKModel.FK_Paquete_Condado" FromRole="Paquete" ToRole="Condado" />
           <NavigationProperty Name="Factura" Relationship="DAKModel.FK_Paquete_Factura" FromRole="Paquete" ToRole="Factura" />
           <NavigationProperty Name="Zona" Relationship="DAKModel.FK_Paquete_Zona" FromRole="Paquete" ToRole="Zona" />
+        </EntityType>
+        <EntityType Name="Zona">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Paquete" Relationship="DAKModel.FK_Paquete_Zona" FromRole="Zona" ToRole="Paquete" />
         </EntityType>
         <Association Name="FK_Paquete_Cliente">
           <End Type="DAKModel.Cliente" Role="Cliente" Multiplicity="1" />
@@ -501,16 +501,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Factura">
-            <EntityTypeMapping TypeName="DAKModel.Factura">
-              <MappingFragment StoreEntitySet="Factura">
-                <ScalarProperty Name="Numero" ColumnName="Numero" />
-                <ScalarProperty Name="Monto" ColumnName="Monto" />
-                <ScalarProperty Name="FechaDepago" ColumnName="FechaDepago" />
-                <ScalarProperty Name="MontoFinal" ColumnName="MontoFinal" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Persona">
             <EntityTypeMapping TypeName="DAKModel.Persona">
               <MappingFragment StoreEntitySet="Persona">
@@ -531,11 +521,13 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Zona">
-            <EntityTypeMapping TypeName="DAKModel.Zona">
-              <MappingFragment StoreEntitySet="Zona">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <EntitySetMapping Name="Factura">
+            <EntityTypeMapping TypeName="DAKModel.Factura">
+              <MappingFragment StoreEntitySet="Factura">
+                <ScalarProperty Name="MontoFinal" ColumnName="MontoFinal" />
+                <ScalarProperty Name="FechaDepago" ColumnName="FechaDepago" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -557,6 +549,14 @@
                 <ScalarProperty Name="FechaEnviado" ColumnName="FechaEnviado" />
                 <ScalarProperty Name="FechaRecivido" ColumnName="FechaRecivido" />
                 <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zona">
+            <EntityTypeMapping TypeName="DAKModel.Zona">
+              <MappingFragment StoreEntitySet="Zona">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
