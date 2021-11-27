@@ -18,10 +18,15 @@ namespace Api.Controllers
         {
             this._paqueteBusiness = new PaqueteBusiness();
         }
-
+        /// <summary>
+        /// Se ingresa un nuevo paquete
+        /// </summary>
+        /// <param name="paquete"></param>
+        /// <returns></returns>
         [HttpPost]
         public PaqueteDto RegistrarPaquete([FromBody]PaqueteDto paquete)
         {
+           
             return this._paqueteBusiness.AltaPaquete(paquete);
         }
         
