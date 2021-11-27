@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Busine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{904B905E-1710-4F78-94DA-90365DCB6DDE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TrackingModule", "TrackingModule", "{5E807505-A35E-4F85-BFA0-81FA4B6F7657}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackingMoule", "..\TrackingMoule\TrackingMoule.csproj", "{7DC266F6-1D4F-44ED-B399-E5CDA58CE629}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{904B905E-1710-4F78-94DA-90365DCB6DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{904B905E-1710-4F78-94DA-90365DCB6DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{904B905E-1710-4F78-94DA-90365DCB6DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DC266F6-1D4F-44ED-B399-E5CDA58CE629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DC266F6-1D4F-44ED-B399-E5CDA58CE629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DC266F6-1D4F-44ED-B399-E5CDA58CE629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DC266F6-1D4F-44ED-B399-E5CDA58CE629}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +67,7 @@ Global
 		{5696494B-7E59-48D8-8EC7-73B70D9A90BE} = {0388EFA2-D63F-41DE-8398-3CE5A1FE32C9}
 		{F1885807-74F2-4D93-9280-04A6E669C5E7} = {81CED09E-3676-477D-AB02-FBEEE39534AC}
 		{904B905E-1710-4F78-94DA-90365DCB6DDE} = {98DEE37C-4E8E-4809-9D4C-8B5814A87CCF}
+		{7DC266F6-1D4F-44ED-B399-E5CDA58CE629} = {5E807505-A35E-4F85-BFA0-81FA4B6F7657}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {376E9566-6F75-4A06-A6F1-BC823CD2E3AF}

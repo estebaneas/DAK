@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ROUTES } from './app.routes';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IngresarPaqueteComponent } from './components/paquete/ingresar-paquete/ingresar-paquete.component';
+import { HeaderComponent } from './components/tracking/shared/header/header.component';
+import { TrackingComponent } from './components/tracking/tracking/tracking.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { IngresarPaqueteComponent } from './components/paquete/ingresar-paquete/
     ClientListComponent,
     LoginComponent,
     IngresarPaqueteComponent,
+    HeaderComponent,
+    TrackingComponent,
   ],
   imports: [
     BrowserModule,

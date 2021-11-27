@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DAK_TRACKINGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DetalleTracking">
+          <Key>
+            <PropertyRef Name="Numero" />
+          </Key>
+          <Property Name="Numero" Type="int" Nullable="false" />
+          <Property Name="Detalle" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="NumeroTrackign" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tracking">
+          <Key>
+            <PropertyRef Name="NumeroTracking" />
+          </Key>
+          <Property Name="NumeroTracking" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UlrimaActualizacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DetalleTracking_Tracking">
+          <End Role="Tracking" Type="Self.Tracking" Multiplicity="1" />
+          <End Role="DetalleTracking" Type="Self.DetalleTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tracking">
+              <PropertyRef Name="NumeroTracking" />
+            </Principal>
+            <Dependent Role="DetalleTracking">
+              <PropertyRef Name="NumeroTrackign" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DAK_TRACKINGModelStoreContainer">
+          <EntitySet Name="DetalleTracking" EntityType="Self.DetalleTracking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tracking" EntityType="Self.Tracking" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DetalleTracking_Tracking" Association="Self.FK_DetalleTracking_Tracking">
+            <End Role="Tracking" EntitySet="Tracking" />
+            <End Role="DetalleTracking" EntitySet="DetalleTracking" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DAK_TRACKINGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tracking">
+          <Key>
+            <PropertyRef Name="NumeroTracking" />
+          </Key>
+          <Property Name="NumeroTracking" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UlrimaActualizacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DetalleTracking" Relationship="DAK_TRACKINGModel.FK_DetalleTracking_Tracking" FromRole="Tracking" ToRole="DetalleTracking" />
+        </EntityType>
+        <EntityContainer Name="DAK_TRACKINGEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tracking" EntityType="Self.Tracking" />
+          <EntitySet Name="DetalleTracking" EntityType="DAK_TRACKINGModel.DetalleTracking" />
+          <AssociationSet Name="FK_DetalleTracking_Tracking" Association="DAK_TRACKINGModel.FK_DetalleTracking_Tracking">
+            <End Role="Tracking" EntitySet="Tracking" />
+            <End Role="DetalleTracking" EntitySet="DetalleTracking" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DetalleTracking">
+          <Key>
+            <PropertyRef Name="Numero" />
+          </Key>
+          <Property Name="Numero" Type="Int32" Nullable="false" />
+          <Property Name="Detalle" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NumeroTrackign" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tracking" Relationship="DAK_TRACKINGModel.FK_DetalleTracking_Tracking" FromRole="DetalleTracking" ToRole="Tracking" />
+        </EntityType>
+        <Association Name="FK_DetalleTracking_Tracking">
+          <End Type="DAK_TRACKINGModel.Tracking" Role="Tracking" Multiplicity="1" />
+          <End Type="DAK_TRACKINGModel.DetalleTracking" Role="DetalleTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tracking">
+              <PropertyRef Name="NumeroTracking" />
+            </Principal>
+            <Dependent Role="DetalleTracking">
+              <PropertyRef Name="NumeroTrackign" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DAK_TRACKINGModelStoreContainer" CdmEntityContainer="DAK_TRACKINGEntities">
+          <EntitySetMapping Name="Tracking">
+            <EntityTypeMapping TypeName="DAK_TRACKINGModel.Tracking">
+              <MappingFragment StoreEntitySet="Tracking">
+                <ScalarProperty Name="NumeroTracking" ColumnName="NumeroTracking" />
+                <ScalarProperty Name="UlrimaActualizacion" ColumnName="UlrimaActualizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleTracking">
+            <EntityTypeMapping TypeName="DAK_TRACKINGModel.DetalleTracking">
+              <MappingFragment StoreEntitySet="DetalleTracking">
+                <ScalarProperty Name="NumeroTrackign" ColumnName="NumeroTrackign" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
