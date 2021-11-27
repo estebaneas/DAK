@@ -12,14 +12,14 @@ namespace DataAccess.Repositories
 {
     public class PaqueteRepository
     {
-        private PaqueteMapper PaqueteM;
+        private readonly PaqueteMapper _paqueteMapper;
         public PaqueteRepository()
         {
-            this.PaqueteM = new PaqueteMapper();
+            this._paqueteMapper = new PaqueteMapper();
         }
         public PaqueteDto registrarPaquete(PaqueteDto paquete)
         {
-            Paquete nPaquete = this.PaqueteM.toEntity(paquete);
+            Paquete nPaquete = this._paqueteMapper.toEntity(paquete);
             using (DAKEntities context = new DAKEntities())
             {
                 using (DbContextTransaction trans = context.Database.BeginTransaction(IsolationLevel.ReadCommitted))
@@ -29,7 +29,7 @@ namespace DataAccess.Repositories
                         context.Paquete.Add(nPaquete);
                         context.SaveChanges();
                         trans.Commit();
-                        return this.PaqueteM.toDto(nPaquete);
+                        return this._paqueteMapper.toDto(nPaquete);
                     }catch(Exception ex)
                     {
                         trans.Rollback();

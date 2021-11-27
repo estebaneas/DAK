@@ -7,22 +7,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using Business;
+using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
     public class PaqueteController : ApiController
     {
-        PaqueteBusiness PaqueteBs ;
+        private readonly PaqueteBusiness _paqueteBusiness ;
         public PaqueteController()
         {
-            this.PaqueteBs = new PaqueteBusiness();
+            this._paqueteBusiness = new PaqueteBusiness();
         }
 
         [HttpPost]
-        [ActionName("RegistrarPaquete")]
         public PaqueteDto RegistrarPaquete([FromBody]PaqueteDto paquete)
         {
-            return this.PaqueteBs.registrarPaquete(paquete);
+            return this._paqueteBusiness.AltaPaquete(paquete);
         }
         
 

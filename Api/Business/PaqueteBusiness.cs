@@ -11,16 +11,16 @@ namespace Business
 {
     public class PaqueteBusiness
     {
-        private PaqueteRepository PaqueteRep;
+        private readonly PaqueteRepository _paqueteRepository;
         public PaqueteBusiness ()
         {
-            this.PaqueteRep = new PaqueteRepository();
+            this._paqueteRepository = new PaqueteRepository();
         }
-        public PaqueteDto  registrarPaquete(PaqueteDto paquete)
+        public PaqueteDto AltaPaquete(PaqueteDto paquete)
         {
             paquete.FechaRecivido = DateTime.Now;
             paquete.Estado = (int)ESTADO.RECIBIDO;
-            return this.PaqueteRep.registrarPaquete(paquete);
+            return this._paqueteRepository.registrarPaquete(paquete);
         }
 
     }

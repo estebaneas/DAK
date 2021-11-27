@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.Http.Cors;
 using System.Linq;
 using System.Web.Http;
 
@@ -10,7 +11,8 @@ namespace Api
         public static void Register(HttpConfiguration config)
         {
             // Configuración y servicios de API web
-
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
             // Rutas de API web
             config.MapHttpAttributeRoutes();
 
