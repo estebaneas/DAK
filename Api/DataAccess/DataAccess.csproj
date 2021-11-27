@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappers\ClienteMapper.cs" />
     <Compile Include="Mappers\FacturaMapper.cs" />
     <Compile Include="Mappers\PaqueteMapper.cs" />
     <Compile Include="Model\Cliente.cs">
@@ -93,6 +94,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AutenticationRepository.cs" />
+    <Compile Include="Repositories\ClienteRepository.cs" />
     <Compile Include="Repositories\FacturaRepository.cs" />
     <Compile Include="Repositories\PaqueteRepository.cs" />
   </ItemGroup>

@@ -8,5 +8,9 @@ namespace CommonSolution.Dtos
 {
     public class EmpresaDto
     {
+        public string Razon_social { get; set; }
+        public string Rut { get; set; }
+
+        public virtual ClienteDto Cliente { get; set; }
     }
 }
