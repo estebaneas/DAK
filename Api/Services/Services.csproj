@@ -42,7 +42,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutenticationService.cs" />
+    <Compile Include="PaqueteService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonSolution\CommonSolution.csproj">
+      <Project>{5696494B-7E59-48D8-8EC7-73B70D9A90BE}</Project>
+      <Name>CommonSolution</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{826EB960-D03D-4D9F-AEBF-4548D45582E6}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

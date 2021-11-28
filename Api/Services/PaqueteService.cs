@@ -1,6 +1,4 @@
-﻿using CommonSolution;
-using CommonSolution.Dtos;
-using DataAccess.Model;
+﻿using CommonSolution.Dtos;
 using DataAccess.Repositories;
 using System;
 using System.Collections.Generic;
@@ -8,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business
+namespace Services
 {
-    public class PaqueteBusiness
+    public class PaqueteService
     {
         private readonly PaqueteRepository _paqueteRepository;
-        public PaqueteBusiness ()
+        public PaqueteService()
         {
             this._paqueteRepository = new PaqueteRepository();
         }
@@ -21,6 +19,5 @@ namespace Business
         {
             return this._paqueteRepository.registrarPaquete(paquete);
         }
-
     }
 }

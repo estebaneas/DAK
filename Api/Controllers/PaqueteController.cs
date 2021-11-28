@@ -10,15 +10,16 @@ using Business;
 using System.Threading.Tasks;
 using System.Net;
 using Api.Validator.Paquete;
+using Services;
 
 namespace Api.Controllers
 {
     public class PaqueteController : ApiController
     {
-        private readonly PaqueteBusiness _paqueteBusiness ;
+        private readonly PaqueteService _paqueteService;
         public PaqueteController()
         {
-            this._paqueteBusiness = new PaqueteBusiness();
+            this._paqueteService = new PaqueteService();
         }
         /// <summary>
         /// Se ingresa un nuevo paquete
@@ -35,7 +36,7 @@ namespace Api.Controllers
                 return BadRequest(validatorResult.ToString());
             }
 
-            var result = this._paqueteBusiness.AltaPaquete(paquete);
+            var result = this._paqueteService.AltaPaquete(paquete);
             if(result != null)
             {
                 return Created("AltaPaquete", true);
