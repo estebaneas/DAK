@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BaseClasses\Pago.cs" />
     <Compile Include="BusinessCollection\BusinessCollection.cs" />
+    <Compile Include="PaqueteBusiness.cs" />
     <Compile Include="Strategies\PagoConcreteStrategies\Debito.cs" />
     <Compile Include="Strategies\PagoConcreteStrategies\Efectivo.cs" />
     <Compile Include="Strategies\PagoConcreteStrategies\MercadoPago.cs" />
