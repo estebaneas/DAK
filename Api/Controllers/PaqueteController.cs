@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Http;
 using Business;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace Api.Controllers
 {
@@ -24,10 +25,17 @@ namespace Api.Controllers
         /// <param name="paquete"></param>
         /// <returns></returns>
         [HttpPost]
-        public PaqueteDto RegistrarPaquete([FromBody]PaqueteDto paquete)
+        public IHttpActionResult RegistrarPaquete([FromBody]PaqueteDto paquete)
         {
-           
-            return this._paqueteBusiness.AltaPaquete(paquete);
+            var result = this._paqueteBusiness.AltaPaquete(paquete);
+            if(result != null)
+            {
+                return Created("AltaPaquete", result);
+            }
+            else
+            {
+                return Conflict();
+            }
         }
         
 
