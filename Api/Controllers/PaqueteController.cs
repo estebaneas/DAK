@@ -13,7 +13,7 @@ namespace Api.Controllers
 {
     public class PaqueteController : ApiController
     {
-        private PaqueteBusiness _paqueteBusiness ;
+        private readonly PaqueteBusiness _paqueteBusiness ;
         public PaqueteController()
         {
             this._paqueteBusiness = new PaqueteBusiness();
