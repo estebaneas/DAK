@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Business;
-namespace Business.BusinessCollection
+﻿namespace Business.BusinessCollection
 {
     public class BusinessCollection
     {

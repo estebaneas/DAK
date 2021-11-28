@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IngresarPaqueteComponent } from './components/paquete/ingresar-paquete/ingresar-paquete.component';
 import { HeaderComponent } from './components/tracking/shared/header/header.component';
 import { TrackingComponent } from './components/tracking/tracking/tracking.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { TrackingComponent } from './components/tracking/tracking/tracking.compo
     IngresarPaqueteComponent,
     HeaderComponent,
     TrackingComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

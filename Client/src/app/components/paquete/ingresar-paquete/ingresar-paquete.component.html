@@ -1,44 +1,68 @@
-<form>
-    <div class="form-horizontal">
-      <div class="form-group">
-        <label class="col-md-2" for="inputEmail4">Email</label>
-        <div>
-        <input type="email" class="form-control" id="inputEmail4">
-      </div>
-      </div>
+<app-loading *ngIf="loading" class="m-5"></app-loading>
+
+<form [formGroup]="formPaquete" *ngIf="!loading" class="animated fadeIn">
+    <div class="row">
+        <div class="column">
+
+            <div class="form-group col-md-8">
+                <label for="inputRemitente">Remitente</label>
+                <input type="text" class="form-control" id="inputRemitente" placeholder="Jhon Smith" formControlName="remitente">
+                <span *ngIf="remitente && remitente.invalid && remitente.touched" class="error-block">Remitente invalido</span>
+            </div>
+            <div class="form-group col-md-8">
+                <a href="#" class="stretched-link">Agregar Remitente</a>
+            </div>
+            <div class="form-group col-md-8">
+                <a href="#" class="stretched-link">Buscar Remitente</a>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="inputDestinatario">Destinatario</label>
+                <input type="text" class="form-control" id="inputDestinatario" placeholder="Peter Parker" formControlName="destinatario">
+                <span *ngIf="destinatario && destinatario.invalid && destinatario.touched" class="error-block">Destinatario invalido</span>
+            </div>
+            <div class="form-group col-md-8">
+                <a href="#" class="stretched-link">Agregar Destinatario</a>
+            </div>
+            <div class="form-group col-md-8">
+                <a href="#" class="stretched-link">Buscar Destinatario</a>
+            </div>
+            <div class="form-control-lg">
+            </div>
+            <div class="form-control-lg">
+            </div>
+            <div class="form-control-lg">
+            </div>
+            <button type="submit" class="btn btn-dark">Ingresar</button>
+        </div>
+        <div class="column">
+            <div class="form-group col-md-8">
+                <label for="inputCalle">Calle</label>
+                <input type="text" class="form-control" id="inputCalle" placeholder="1234 Main St" formControlName="calle">
+                <span *ngIf="calle && calle.invalid && calle.touched" class="error-block">Calle invalida</span>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="inputCondado">Condado</label>
+                <select id="inputCondado" class="form-control" formControlName="condado">
+                  <option *ngFor="let condado of condados">{{condado.Nombre}}</option>
+                </select>
+                <span *ngIf="condado && condado.invalid && condado.touched" class="error-block">Condado invalido</span>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="inputLocalidad">Localidad</label>
+                <input type="text" class="form-control" id="inputLocalidad" placeholder="Barrio St Claire" formControlName="localidad">
+                <span *ngIf="localidad && localidad.invalid && localidad.touched" class="error-block">Localidad invalida</span>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="inputDetalle">Detalles de direccion</label>
+                <textarea class="form-control" id="inputDetalle" rows="3" formControlName="detalle"></textarea>
+                <span *ngIf="detalle && detalle.invalid && detalle.touched" class="error-block">Detalle invalido</span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="inputPeso">Peso</label>
+                <input type="number" class="form-control" id="inputPeso" formControlName="peso">
+                <span *ngIf="peso && peso.invalid && peso.touched" class="error-block">Peso invalido</span>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-      <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-    </div>
-    <div class="form-group">
-      <label for="inputAddress2">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </form>
+</form>

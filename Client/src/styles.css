@@ -26,3 +26,7 @@
 .fadeIn {
     animation-name: fadeIn;
 }
+
+.error-block {
+    color: #DB4950;
+}

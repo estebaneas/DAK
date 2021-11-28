@@ -8,6 +8,8 @@ using DataAccess.Model;
 using DataAccess.Mappers;
 using System.Data.Entity;
 using System.Data;
+using CommonSolution;
+
 namespace DataAccess.Repositories
 {
     public class PaqueteRepository
@@ -20,6 +22,8 @@ namespace DataAccess.Repositories
         public PaqueteDto registrarPaquete(PaqueteDto paquete)
         {
             Paquete nPaquete = this._paqueteMapper.toEntity(paquete);
+            nPaquete.Estado = (int)ESTADO.RECIBIDO;
+            nPaquete.FechaRecivido = DateTime.Now;
             using (DAKEntities context = new DAKEntities())
             {
                 using (DbContextTransaction trans = context.Database.BeginTransaction(IsolationLevel.ReadCommitted))
@@ -29,10 +33,12 @@ namespace DataAccess.Repositories
                         context.Paquete.Add(nPaquete);
                         context.SaveChanges();
                         trans.Commit();
-                        return this._paqueteMapper.toDto(nPaquete);
-                    }catch(Exception ex)
+                        return _paqueteMapper.toDto(nPaquete);
+                    }
+                    catch(Exception ex)
                     {
                         trans.Rollback();
+                        Console.Write(ex.Message);
                         return null;
                     }
                 }
