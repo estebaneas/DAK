@@ -12,7 +12,7 @@ namespace Api.Controllers
 {
     public class FacturaController : ApiController
     {
-        FacturaBusiness facutraBs;
+        private FacturaBusiness facutraBs;
         FacturaController()
         {
             this.facutraBs = new FacturaBusiness();

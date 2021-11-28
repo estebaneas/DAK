@@ -12,7 +12,7 @@ namespace Business
 {
     public class FacturaBusiness
     {
-        FacturaRepository FacturaRepo;
+        private FacturaRepository FacturaRepo;
         public FacturaBusiness()
         {
             this.FacturaRepo = new FacturaRepository();
