@@ -38,7 +38,7 @@ namespace Api.Controllers
             var result = this._paqueteBusiness.AltaPaquete(paquete);
             if(result != null)
             {
-                return Created("AltaPaquete", result);
+                return Created("AltaPaquete", true);
             }
             else
             {

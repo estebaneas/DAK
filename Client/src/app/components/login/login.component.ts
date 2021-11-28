@@ -15,14 +15,27 @@ export class LoginComponent {
   }
   formLogin = new FormGroup(
     {
-      user: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+      user: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
     }
   )
 
-  login()
+  login(values:any)
   {
+    console.log(values);
     this.auth.verficiarCliente(this.formLogin.value['user'], this.formLogin.value['password']);
   }
+
+  //#region Validaciones
+  get user()
+  {
+    return this.formLogin.get('user');
+  }
+
+  get password()
+  {
+    return this.formLogin.get('password');
+  }
+  //#endregion
 
 }

@@ -26,3 +26,7 @@
 .fadeIn {
     animation-name: fadeIn;
 }
+
+.help-block {
+    color: red;
+}
