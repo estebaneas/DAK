@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IngresarPaqueteComponent } from './ingresar-paquete.component';
+import { LoadingComponent } from './loading.component';
 
-describe('IngresarPaqueteComponent', () => {
-  let component: IngresarPaqueteComponent;
-  let fixture: ComponentFixture<IngresarPaqueteComponent>;
+describe('LoadingComponent', () => {
+  let component: LoadingComponent;
+  let fixture: ComponentFixture<LoadingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IngresarPaqueteComponent ]
+      declarations: [ LoadingComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IngresarPaqueteComponent);
+    fixture = TestBed.createComponent(LoadingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,6 @@
-<form>
+<app-loading *ngIf="loading" class="m-5"></app-loading>
+
+<form *ngIf="!loading" class="animated fadeIn">
     <div class="row">
         <div class="column">
 
@@ -38,8 +40,7 @@
             <div class="form-group col-md-8">
                 <label for="inputCondado">Condado</label>
                 <select id="inputCondado" class="form-control">
-                  <option selected>Elegir condado</option>
-                  <option>...</option>
+                  <option *ngFor="let condado of condados">{{condado.Nombre}}</option>
                 </select>
             </div>
             <div class="form-group col-md-8">
