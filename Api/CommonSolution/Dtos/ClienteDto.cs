@@ -17,8 +17,7 @@ namespace CommonSolution.Dtos
         public string Email { get; set; }
         public int id_condado { get; set; }
 
-        public virtual CondadoDto Condado { get; set; }
-        public virtual EmpresaDto Empresa { get; set; }
-        public virtual PersonaDto Persona { get; set; }
+        public EmpresaDto Empresa { get; set; }
+        public PersonaDto Persona { get; set; }
     }
 }

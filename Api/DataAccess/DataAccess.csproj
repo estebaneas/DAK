@@ -51,8 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mappers\ClienteMapper.cs" />
+    <Compile Include="Mappers\EmpresaMapper.cs" />
     <Compile Include="Mappers\FacturaMapper.cs" />
     <Compile Include="Mappers\PaqueteMapper.cs" />
+    <Compile Include="Mappers\PersonaMapper.cs" />
     <Compile Include="Model\Cliente.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

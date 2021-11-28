@@ -11,7 +11,7 @@ namespace Business
 {
     public class PaqueteBusiness
     {
-        private readonly PaqueteRepository _paqueteRepository;
+        private PaqueteRepository _paqueteRepository;
         public PaqueteBusiness ()
         {
             this._paqueteRepository = new PaqueteRepository();
