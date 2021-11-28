@@ -34,6 +34,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>App_Data/XmlDocument.xml</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -251,6 +253,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AutenticationController.cs" />
+    <Compile Include="Controllers\CondadoController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaqueteController.cs" />
@@ -317,6 +320,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Autentication\" />
+    <Folder Include="Views\Condado\" />
     <Folder Include="Views\Factura\" />
     <Folder Include="Views\Paquete\" />
   </ItemGroup>
@@ -361,6 +365,10 @@
     <ProjectReference Include="DataAccess\DataAccess.csproj">
       <Project>{826EB960-D03D-4D9F-AEBF-4548D45582E6}</Project>
       <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="Services\Services.csproj">
+      <Project>{904B905E-1710-4F78-94DA-90365DCB6DDE}</Project>
+      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
