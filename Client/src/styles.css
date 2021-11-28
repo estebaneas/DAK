@@ -27,6 +27,6 @@
     animation-name: fadeIn;
 }
 
-.help-block {
-    color: red;
+.error-block {
+    color: #DB4950;
 }
