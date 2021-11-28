@@ -1,5 +1,6 @@
 ﻿using CommonSolution;
 using CommonSolution.Dtos;
+using DataAccess.Model;
 using DataAccess.Repositories;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,6 @@ namespace Business
         }
         public PaqueteDto AltaPaquete(PaqueteDto paquete)
         {
-            paquete.FechaRecivido = DateTime.Now;
-            paquete.Estado = (int)ESTADO.RECIBIDO;
             return this._paqueteRepository.registrarPaquete(paquete);
         }
 

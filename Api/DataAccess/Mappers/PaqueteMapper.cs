@@ -22,7 +22,7 @@ namespace DataAccess.Mappers
             salida.ID = entrada.ID;
             salida.FechaCambioEstado = entrada.FechaCambioEstado;
             salida.FechaEnviado = entrada.FechaEnviado;
-            salida.FechaRecivido = entrada.FechaRecivido;
+            salida.FechaRecivido = entrada.FechaRecibido;
             salida.Estado = entrada.Estado;
             salida.Tamano = entrada.Tamano;
             salida.Numero_Factura = entrada.Numero_Factura;
@@ -55,7 +55,7 @@ namespace DataAccess.Mappers
             salida.ID = entrada.ID;
             salida.FechaCambioEstado = entrada.FechaCambioEstado;
             salida.FechaEnviado = entrada.FechaEnviado;
-            salida.FechaRecivido = entrada.FechaRecivido;
+            salida.FechaRecibido = entrada.FechaRecivido;
             salida.Estado = entrada.Estado;
             salida.Tamano = entrada.Tamano;
             salida.Numero_Factura = entrada.Numero_Factura;

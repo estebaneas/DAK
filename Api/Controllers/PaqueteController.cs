@@ -9,6 +9,7 @@ using System.Web.Http;
 using Business;
 using System.Threading.Tasks;
 using System.Net;
+using Api.Validator.Paquete;
 
 namespace Api.Controllers
 {
@@ -27,6 +28,13 @@ namespace Api.Controllers
         [HttpPost]
         public IHttpActionResult RegistrarPaquete([FromBody]PaqueteDto paquete)
         {
+            var validator = new PaqueteResourceValidator();
+            var validatorResult = validator.Validate(paquete);
+            if(!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.ToString());
+            }
+
             var result = this._paqueteBusiness.AltaPaquete(paquete);
             if(result != null)
             {

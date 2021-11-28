@@ -6,7 +6,7 @@ namespace CommonSolution.Dtos
     {
         public int ID { get; set; }
         public double Peso { get; set; }
-        public DateTime FechaRecivido { get; set; }
+        public DateTime FechaRecibido { get; set; }
         public DateTime? FechaEnviado { get; set; }
         public DateTime FechaCambioEstado { get; set; }
         public string Calle { get; set; }
