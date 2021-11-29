@@ -7,5 +7,9 @@ export class TrackingService {
 
   constructor() { }
 
-  
+  getHubicacion()
+  {
+
+  }
+
 }
