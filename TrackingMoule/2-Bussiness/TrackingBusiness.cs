@@ -11,7 +11,8 @@ namespace TrackingMoule.Bussiness
 {
     public class TrackingBusiness
     {
-        TrackingRepository TrackingR;
+        private TrackingRepository TrackingR;
+        private string URL = "https://localhost:44301/api/Tracking/NewTracking?client=DAK";
         public TrackingBusiness()
         {
             this.TrackingR = new TrackingRepository();
@@ -31,43 +32,25 @@ namespace TrackingMoule.Bussiness
         }
         public List<DetalleDto> getDetalleTracking(string numeroTracking)
         {
-            TrackingProxy proxy = new TrackingProxy(new TrackingRepository().getTracking(numeroTracking));
+            TrackingProxy proxy = new TrackingProxy(TrackingR.getTracking(numeroTracking));
             return proxy.getDetalle();
         }
 
         public TrackingDto getTracking(string numeroTracking)
         {
-            return new TrackingRepository().getTracking(numeroTracking);
+            return TrackingR.getTracking(numeroTracking);
         }
 
         public bool verificar(string numeroTracking)
         {
-            return new TrackingRepository().Verificar(numeroTracking);
+            return TrackingR.Verificar(numeroTracking);
         }
 
         public string SolicitarNuevoTracking()
         {
-            string url = "https://localhost:44301/api/Tracking/NewTracking?client=" + "DAK";
-            WebRequest request = WebRequest.Create(url);
-            /*string data = "DAK";
-            request.Method = "POST";
-            request.ContentLength = data.Length;
-            //request.ContentType= "application/json";
-            request.ContentType = "text/plain";*/
+
+            WebRequest request = WebRequest.Create(URL);
             string nroTracking;
-
-            /*using (var StreamW = new StreamWriter(request.GetRequestStream()))
-            {
-                StreamW.Write(data);
-                StreamW.Flush();
-                StreamW.Close();
-                var respuesta = (HttpWebResponse)request.GetResponse();
-                using (var streamR = new StreamReader(respuesta.GetResponseStream()))
-                {
-                    string resultado = streamR.ReadToEnd();
-                }
-            }*/
-
 
             HttpWebResponse respusta = (HttpWebResponse)request.GetResponse();
             using (Stream stream = respusta.GetResponseStream())
