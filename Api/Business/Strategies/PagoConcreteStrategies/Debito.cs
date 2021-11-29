@@ -9,11 +9,16 @@ using System.Threading.Tasks;
 
 namespace Business.Strategies.PagoConcreteStrategies
 {
-    public class Debito :Pago, IPago
+    public class Debito : Pago, IPago
     {
+        public double calcularMontoFinal(double monto)
+        {
+            return monto;
+        }
+
         public bool procesarPago(FacturaDto factura)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
