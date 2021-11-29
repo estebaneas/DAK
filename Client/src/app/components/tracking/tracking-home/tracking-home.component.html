@@ -1,15 +1,15 @@
-<div class="contenedor">
+<div class="contenedor" [formGroup]="formTracking">
 <div class="search">
     <form>
       <div class="form-group">
         <small class="form-text text-muted">Ingrese el numero de tracking.</small>
-        <input type="input" class="form-control" placeholder="Ej: DAK813275448216">
+        <input type="input" class="form-control" placeholder="Ej: DAK813275448216" formControlName="numeroTracking">
       </div>
-      <button type="submit"  class="btn btn-info">Rastrear</button>
+      <button type="submit" (click)="verificar()" class="btn btn-info">Rastrear</button>
     </form>
   </div>
 </div>
-  <!--(click)="verificar()""-->
-  <!--[formGroup]="formTracking"-->
+  <!--"-->
+  <!---->
   <!-- formControlName="numeroTracking"-->
   <!--{{existe}}-->

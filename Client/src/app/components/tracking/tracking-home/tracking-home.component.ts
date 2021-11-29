@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-tracking-home',
@@ -9,7 +10,14 @@ export class TrackingHomeComponent implements OnInit {
 
   constructor() { }
 
+  formTracking= new FormGroup({
+    numeroTracking : new FormControl('',[Validators.required])
+  })
+
   ngOnInit(): void {
   }
 
+  verificar(){
+
+  }
 }
