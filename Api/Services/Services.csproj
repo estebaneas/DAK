@@ -47,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\TrackingMoule\TrackingMoule.csproj">
+      <Project>{7DC266F6-1D4F-44ED-B399-E5CDA58CE629}</Project>
+      <Name>TrackingMoule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CommonSolution\CommonSolution.csproj">
       <Project>{5696494B-7E59-48D8-8EC7-73B70D9A90BE}</Project>
       <Name>CommonSolution</Name>

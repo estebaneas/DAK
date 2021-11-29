@@ -17,7 +17,6 @@ namespace Services
         public PaqueteService()
         {
             this._paqueteRepository = new PaqueteRepository();
-            this._trackingBusiness = new TrackingBusiness();
         }
         public PaqueteDto AltaPaquete(PaqueteDto paquete)
         {
