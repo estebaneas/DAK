@@ -22,7 +22,7 @@ namespace Api.Controllers
             bool result = this._clienteBusiness.AltaCliente(clienteDto);
             if (result != false)
             {
-                return Created("AltaPaquete", true);
+                return Created("AltaCliente", true);
             }
             else
             {
