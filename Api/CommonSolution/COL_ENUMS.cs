@@ -23,6 +23,11 @@ namespace CommonSolution
         MUY_GRANDE
     }
 
+    public enum GRUPO{
+      COMUN,
+      PESO,
+      DISTANCIA
+    }
 
     class COL_ENUMS
     {
