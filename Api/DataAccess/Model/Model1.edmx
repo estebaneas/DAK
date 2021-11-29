@@ -61,6 +61,7 @@
           <Property Name="ID_Condado" Type="int" Nullable="false" />
           <Property Name="Numero_Factura" Type="int" Nullable="false" />
           <Property Name="Tamano" Type="int" Nullable="false" />
+          <Property Name="TrackingNumero" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Persona">
           <Key>
@@ -396,6 +397,7 @@
           <NavigationProperty Name="Condado" Relationship="DAKModel.FK_Paquete_Condado" FromRole="Paquete" ToRole="Condado" />
           <NavigationProperty Name="Factura" Relationship="DAKModel.FK_Paquete_Factura" FromRole="Paquete" ToRole="Factura" />
           <NavigationProperty Name="Zona" Relationship="DAKModel.FK_Paquete_Zona" FromRole="Paquete" ToRole="Zona" />
+          <Property Name="TrackingNumero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Zona">
           <Key>
@@ -534,6 +536,7 @@
           <EntitySetMapping Name="Paquete">
             <EntityTypeMapping TypeName="DAKModel.Paquete">
               <MappingFragment StoreEntitySet="Paquete">
+                <ScalarProperty Name="TrackingNumero" ColumnName="TrackingNumero" />
                 <ScalarProperty Name="Tamano" ColumnName="Tamano" />
                 <ScalarProperty Name="Numero_Factura" ColumnName="Numero_Factura" />
                 <ScalarProperty Name="ID_Condado" ColumnName="ID_Condado" />
