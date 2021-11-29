@@ -34,5 +34,10 @@ namespace Business
 
             return response;
         }
+
+        public List<ClienteDto> buscarCliente(string busqueda)
+        {
+            return this._clienteRepository.buscarClientes(busqueda);
+        }
     }
 }

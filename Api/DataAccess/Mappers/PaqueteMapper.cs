@@ -64,7 +64,7 @@ namespace DataAccess.Mappers
             return salida;
         }
 
-        public List<PaqueteDto> toEntity(List<Paquete> entradas)
+        public List<PaqueteDto> toDto(List<Paquete> entradas)
         {
             List<PaqueteDto> salidas = new List<PaqueteDto>();
             foreach (Paquete item in entradas)
