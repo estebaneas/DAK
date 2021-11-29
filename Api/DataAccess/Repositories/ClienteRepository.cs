@@ -13,16 +13,16 @@ namespace DataAccess.Repositories
 {
     public class ClienteRepository
     {
-        private ClienteMapper ClienteM;
-        private EmpresaMapper EmpresaM;
-        private PersonaMapper PersonaM;
+        private readonly ClienteMapper ClienteM;
+        private readonly EmpresaMapper EmpresaM;
+        private readonly PersonaMapper PersonaM;
         public ClienteRepository()
         {
             this.ClienteM = new ClienteMapper();
             this.EmpresaM = new EmpresaMapper();
             this.PersonaM = new PersonaMapper();
         }
-        public void registrarCliente(ClienteDto clienteDto)
+        public bool registrarCliente(ClienteDto clienteDto)
         {
             Cliente nuevoCliente = this.ClienteM.toEntity(clienteDto);
             using (DAKEntities context = new DAKEntities())
@@ -35,10 +35,12 @@ namespace DataAccess.Repositories
                         context.Cliente.Add(nuevoCliente);
                         context.SaveChanges();
                         trans.Commit();
+                        return true;
                     }
                     catch (Exception ex)
                     {
                         trans.Rollback();
+                        return false;
                     }
                 }
             }

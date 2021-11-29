@@ -10,23 +10,26 @@ namespace Business
 {
     public class ClienteBusiness
     {
-        private ClienteRepository _clienteRepository;
+        private readonly ClienteRepository _clienteRepository;
         public ClienteBusiness()
         {
             this._clienteRepository = new ClienteRepository();
         }
         public bool AltaCliente(ClienteDto clienteDto)
         {
-            bool response = false;
-            this._clienteRepository.registrarCliente(clienteDto);
+            var response = false;
+            response = this._clienteRepository.registrarCliente(clienteDto);
 
-            if (clienteDto.Tipo_documento == 0 /* CERO ES RUT*/)
+            if(response == true)
             {
-                response = this._clienteRepository.registrarEmpresa(clienteDto.Empresa);
-            }
-            else
-            {
-                response = this._clienteRepository.registrarPersona(clienteDto.Persona);
+                if (clienteDto.Tipo_documento == 0 /* CERO ES RUT*/)
+                {
+                    response = this._clienteRepository.registrarEmpresa(clienteDto.Empresa);
+                }
+                else
+                {
+                    response = this._clienteRepository.registrarPersona(clienteDto.Persona);
+                }
             }
 
             return response;

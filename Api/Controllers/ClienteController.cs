@@ -10,16 +10,24 @@ namespace Api.Controllers
 {
     public class ClienteController : ApiController
     {
-        private ClienteBusiness _clienteBusiness;
+        private readonly ClienteBusiness _clienteBusiness;
         public ClienteController()
         {
             this._clienteBusiness = new ClienteBusiness();
         }
 
         [HttpPost]
-        public bool RegistrarCliente([FromBody] ClienteDto clienteDto)
+        public IHttpActionResult RegistrarCliente([FromBody] ClienteDto clienteDto)
         {
-            return this._clienteBusiness.AltaCliente(clienteDto);
+            bool result = this._clienteBusiness.AltaCliente(clienteDto);
+            if (result != false)
+            {
+                return Created("AltaCliente", true);
+            }
+            else
+            {
+                return Conflict();
+            }
         }
     }
 }
