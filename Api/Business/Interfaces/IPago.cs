@@ -9,5 +9,6 @@ namespace Business.Interfaces
     public interface IPago
     {
         bool procesarPago(FacturaDto factura);
+        double calcularMontoFinal(double monto);
     }
 }

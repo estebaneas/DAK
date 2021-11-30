@@ -11,9 +11,16 @@ namespace Business.Strategies.PagoConcreteStrategies
 {
     public class Visa : Pago, IPago
     {
+        public double calcularMontoFinal(double monto)
+        {
+            double descuento = monto * 0.10;
+            double montoFinal = monto - descuento;
+            return montoFinal;
+        }
+
         public bool procesarPago(FacturaDto factura)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

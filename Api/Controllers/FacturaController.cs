@@ -12,7 +12,7 @@ namespace Api.Controllers
 {
     public class FacturaController : ApiController
     {
-        private FacturaBusiness facutraBs;
+        private readonly FacturaBusiness facutraBs;
         FacturaController()
         {
             this.facutraBs = new FacturaBusiness();
@@ -20,9 +20,16 @@ namespace Api.Controllers
 
         [HttpPost]
         [ActionName ("PagarFactura")]
-        public FacturaDto PagaarFactura([FromBody] FacturaDto factura)
+        public FacturaDto PagarFactura([FromBody] FacturaDto factura)
         {
             return  this.facutraBs.pagarFactura(factura);
+        }
+
+        [HttpGet]
+        [ActionName ("CalcularPrecioFinal")]
+        public FacturaDto calcularMontoFinal([FromBody] FacturaDto factura)
+        {
+            return this.facutraBs.calcularMontoFinal(factura);
         }
 
     }
