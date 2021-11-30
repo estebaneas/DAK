@@ -18,6 +18,8 @@ import { LoginLayoutComponent } from './components/layouts/login-layout/login-la
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { GoogleMapsComponent } from './components/shared/google-maps/google-maps.component';
+
 @NgModule({
   declarations: [
 
@@ -34,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     FooterComponent,
     LoginLayoutComponent,
-    LoadingComponent
+    LoadingComponent,
+    GoogleMapsComponent
   ],
   imports: [
     HttpClientModule,

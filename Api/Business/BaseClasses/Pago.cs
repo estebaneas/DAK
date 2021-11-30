@@ -8,5 +8,6 @@ namespace Business.BaseClasses
 {
     public class Pago
     {
+
     }
 }
