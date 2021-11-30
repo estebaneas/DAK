@@ -28,6 +28,7 @@ namespace DataAccess.Mappers
             salida.Numero_Factura = entrada.Numero_Factura;
             salida.Localidad = entrada.Localidad;
             salida.Peso = entrada.Peso;
+            salida.TrackingNumero = entrada.TrackingNumero;
             return salida;
         }
 
@@ -61,10 +62,11 @@ namespace DataAccess.Mappers
             salida.Numero_Factura = entrada.Numero_Factura;
             salida.Localidad = entrada.Localidad;
             salida.Peso = entrada.Peso;
+            salida.TrackingNumero = entrada.TrackingNumero;
             return salida;
         }
 
-        public List<PaqueteDto> toEntity(List<Paquete> entradas)
+        public List<PaqueteDto> toDto(List<Paquete> entradas)
         {
             List<PaqueteDto> salidas = new List<PaqueteDto>();
             foreach (Paquete item in entradas)

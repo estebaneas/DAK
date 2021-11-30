@@ -25,6 +25,15 @@ namespace DataAccess.Mappers
             return salida;
         }
 
+        public List<Cliente> toEntity(List<ClienteDto> entradas)
+        {
+            List<Cliente> salidas = new List<Cliente>();
+            foreach (ClienteDto item in entradas)
+            {
+                salidas.Add(this.toEntity(item));
+            }
+            return salidas;
+        }
         public ClienteDto toDto(Cliente entrada)
         {
             ClienteDto salida = new ClienteDto();
@@ -37,6 +46,16 @@ namespace DataAccess.Mappers
             salida.Email = entrada.Email;
             salida.id_condado = entrada.id_condado;
             return salida;
+        }
+
+        public List<ClienteDto> toDto(List<Cliente> entradas)
+        {
+            List<ClienteDto> salidas = new List<ClienteDto>();
+            foreach (Cliente item in entradas)
+            {
+                salidas.Add(this.toDto(item));
+            }
+            return salidas;
         }
     }
 }

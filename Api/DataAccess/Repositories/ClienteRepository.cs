@@ -94,5 +94,31 @@ namespace DataAccess.Repositories
             }
         }
 
+        public List<ClienteDto> buscarClientes(string busqueda)
+        {
+            List<Cliente> resultadoBusqueda = new List<Cliente>();
+            List<ClienteDto> resultadoBusquedaDto = new List<ClienteDto>();
+
+            using (DAKEntities context = new DAKEntities())
+            {
+                using (DbContextTransaction trans = context.Database.BeginTransaction(IsolationLevel.ReadCommitted))
+                {
+                    try
+                    {
+                        resultadoBusqueda = context.Cliente.OrderBy(c => c.Documento.Contains(busqueda)).ToList();
+                        resultadoBusquedaDto = ClienteM.toDto(resultadoBusqueda); 
+                    }
+                    catch (Exception ex)
+                    {
+                        trans.Rollback();
+                        Console.Write(ex.Message);
+                        return null;
+                    }
+                }
+            }
+
+            return resultadoBusquedaDto;
+        }
+
     }
 }

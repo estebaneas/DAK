@@ -18,7 +18,8 @@ import { LoginLayoutComponent } from './components/layouts/login-layout/login-la
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { GoogleMapComponent } from './components/shared/google-map/google-map.component';
+import { GoogleMapsComponent } from './components/shared/google-maps/google-maps.component';
+
 @NgModule({
   declarations: [
     AppComponent,
