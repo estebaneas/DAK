@@ -11,6 +11,5 @@ namespace CommonSolution.Dtos
         public string Razon_social { get; set; }
         public string Rut { get; set; }
 
-        public virtual ClienteDto Cliente { get; set; }
     }
 }
