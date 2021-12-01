@@ -28,6 +28,7 @@ namespace DataAccess.Mappers
             salida.Numero_Factura = entrada.Numero_Factura;
             salida.Localidad = entrada.Localidad;
             salida.Peso = entrada.Peso;
+            salida.TrackingNumero = entrada.TrackingNumero;
             return salida;
         }
 
@@ -61,6 +62,7 @@ namespace DataAccess.Mappers
             salida.Numero_Factura = entrada.Numero_Factura;
             salida.Localidad = entrada.Localidad;
             salida.Peso = entrada.Peso;
+            salida.TrackingNumero = entrada.TrackingNumero;
             return salida;
         }
 
