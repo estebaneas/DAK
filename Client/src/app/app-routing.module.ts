@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { IngresarPaqueteComponent } from './components/paquete/ingresar-paquete/ingresar-paquete.component';
 import { TrackingHomeComponent } from './components/tracking/tracking-home/tracking-home.component';
 import { TrackingResultsComponent } from './components/tracking/tracking-results/tracking-results.component';
+import { PagoComponent } from './components/pago/pago.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo : 'home'},
@@ -14,6 +15,7 @@ const routes: Routes = [
     {path:'home',component:HomeComponent},
     {path:'login',component:LoginComponent},
     {path:'ingresarPaquete', component:IngresarPaqueteComponent},
+    {path:'pago', component:PagoComponent},
   ]},
 
   {path:'',component:TrackingLayoutComponent, children:[
