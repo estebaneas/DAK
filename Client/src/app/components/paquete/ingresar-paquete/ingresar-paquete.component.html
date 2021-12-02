@@ -1,6 +1,6 @@
 <app-loading *ngIf="loading" class="m-5"></app-loading>
 
-<form [formGroup]="formPaquete" *ngIf="!loading" class="animated fadeIn">
+<form [formGroup]="formPaquete" (ngSubmit)="pagar(formPaquete.value)" *ngIf="!loading" class="animated fadeIn">
     <div class="row">
         <div class="column">
 

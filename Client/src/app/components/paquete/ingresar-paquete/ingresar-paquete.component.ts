@@ -1,6 +1,9 @@
 import { Component} from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
+import { paquete } from '../../models/paquete';
 import { CondadoService } from 'src/app/services/dak/condado/condado.service';
+import { PagoService } from '../../../services/dak/pago/pago.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ingresar-paquete',
@@ -12,10 +15,13 @@ export class IngresarPaqueteComponent{
   condados: any[] = [];
   loading: boolean = true;
 
-  constructor(private condadoService: CondadoService) {
+  constructor(private condadoService: CondadoService,
+              private PagoService: PagoService,
+              private router: Router) {
+    
+    
     this.condadoService.getCondadoList()
     .subscribe((data: any) => {
-      console.log(data);
       this.condados = data;
       this.loading = false;
     });
@@ -32,6 +38,24 @@ export class IngresarPaqueteComponent{
       peso: new FormControl('', [Validators.required])
     }
   )
+
+  
+  pagar(paquete: paquete)
+  {
+    paquete.remitente = this.formPaquete.value['remitente'],
+    paquete.destinatario = this.formPaquete.value['destinatario'],
+    paquete.calle = this.formPaquete.value['calle'],
+    paquete.condado = this.formPaquete.value['condado'],
+    paquete.localidad = this.formPaquete.value['localidad'],
+    paquete.detalle = this.formPaquete.value['detalle'],
+    paquete.peso = this.formPaquete.value['peso']
+
+    //Se guarda en localStorage
+    this.PagoService.localStorage(paquete);
+    //Se navega a pago
+    this.router.navigateByUrl('/pago');
+
+  }
 
     //#region Validaciones
     get remitente()
