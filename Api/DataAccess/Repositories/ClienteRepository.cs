@@ -40,6 +40,7 @@ namespace DataAccess.Repositories
                     catch (Exception ex)
                     {
                         trans.Rollback();
+                        Console.WriteLine(ex);
                         return false;
                     }
                 }
@@ -92,6 +93,28 @@ namespace DataAccess.Repositories
                     }
                 }
             }
+        }
+
+        public List<ClienteDto> buscarClientes(string busqueda)
+        {
+            List<Cliente> resultadoBusqueda = new List<Cliente>();
+            List<ClienteDto> resultadoBusquedaDto = new List<ClienteDto>();
+
+            using (DAKEntities context = new DAKEntities())
+            {
+                    try
+                    {
+                        resultadoBusqueda = context.Cliente.AsNoTracking().Where(c => c.Documento.Contains(busqueda)).ToList();
+                        resultadoBusquedaDto = ClienteM.toDto(resultadoBusqueda); 
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Write(ex.Message);
+                        return null;
+                    }
+            }
+
+            return resultadoBusquedaDto;
         }
 
     }

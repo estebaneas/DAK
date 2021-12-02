@@ -19,6 +19,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { PagoComponent } from './components/pago/pago.component';
+import { GoogleMapsComponent } from './components/shared/google-maps/google-maps.component';
+
 @NgModule({
   declarations: [
 
@@ -36,7 +38,8 @@ import { PagoComponent } from './components/pago/pago.component';
     FooterComponent,
     LoginLayoutComponent,
     LoadingComponent,
-    PagoComponent
+    PagoComponent,
+    GoogleMapsComponent
   ],
   imports: [
     HttpClientModule,

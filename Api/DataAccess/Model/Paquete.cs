@@ -30,6 +30,7 @@ namespace DataAccess.Model
         public int ID_Condado { get; set; }
         public int Numero_Factura { get; set; }
         public int Tamano { get; set; }
+        public string TrackingNumero { get; set; }
     
         public virtual Cliente Cliente { get; set; }
         public virtual Cliente Cliente1 { get; set; }

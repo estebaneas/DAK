@@ -17,6 +17,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
+        [ActionName("RegistrarCliente")]
         public IHttpActionResult RegistrarCliente([FromBody] ClienteDto clienteDto)
         {
             bool result = this._clienteBusiness.AltaCliente(clienteDto);
@@ -28,6 +29,13 @@ namespace Api.Controllers
             {
                 return Conflict();
             }
+        }
+
+        [HttpGet]
+        [ActionName("BuscarCliente")]
+        public List<ClienteDto> buscarCliente(string busqueda)
+        {
+            return this._clienteBusiness.buscarCliente(busqueda);
         }
     }
 }

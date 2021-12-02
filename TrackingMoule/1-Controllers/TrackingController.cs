@@ -22,7 +22,7 @@ namespace TrackingMoule.Controllers
             return new TrackingBusiness().verificar(NumeroTracking);
         }
 
-        [HttpPost]
+        [HttpGet]
         [ActionName("SolicitarNuevoTracking")]
         public string Registrar()
         {

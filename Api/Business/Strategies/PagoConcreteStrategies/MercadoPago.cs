@@ -11,9 +11,14 @@ namespace Business.Strategies.PagoConcreteStrategies
 {
     public class MercadoPago : Pago, IPago
     {
+        public double calcularMontoFinal(double monto)
+        {
+            return monto;
+        }
+
         public bool procesarPago(FacturaDto factura)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
