@@ -29,13 +29,14 @@ namespace DataAccess.Model
         public string Detalle_direccion { get; set; }
         public string Email { get; set; }
         public int id_condado { get; set; }
+        public int grupo { get; set; }
     
         public virtual Condado Condado { get; set; }
         public virtual Empresa Empresa { get; set; }
-        public virtual Persona Persona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Paquete> Paquete { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Paquete> Paquete1 { get; set; }
+        public virtual Persona Persona { get; set; }
     }
 }

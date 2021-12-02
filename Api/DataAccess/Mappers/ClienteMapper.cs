@@ -22,6 +22,7 @@ namespace DataAccess.Mappers
             salida.Detalle_direccion = entrada.Detalle_direccion;
             salida.Email = entrada.Email;
             salida.id_condado = entrada.id_condado;
+            salida.grupo = entrada.grupo;
             return salida;
         }
 
@@ -45,6 +46,7 @@ namespace DataAccess.Mappers
             salida.Detalle_direccion = entrada.Detalle_direccion;
             salida.Email = entrada.Email;
             salida.id_condado = entrada.id_condado;
+            salida.grupo = entrada.grupo;
             return salida;
         }
 
