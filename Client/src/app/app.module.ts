@@ -18,7 +18,13 @@ import { LoginLayoutComponent } from './components/layouts/login-layout/login-la
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { GoogleMapsComponent } from './components/shared/google-maps/google-maps.component';
+import { GoogleMapComponent } from './components/shared/google-map/google-map.component';
+import { SearchTrackingComponent } from './components/tracking/search-tracking/search-tracking.component';
+import { DetalleTrackingComponent } from './components/modales/detalle-tracking/detalle-tracking.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { ErrorComponent } from './components/modales/error/error.component';
 
 @NgModule({
   declarations: [
@@ -37,17 +43,25 @@ import { GoogleMapsComponent } from './components/shared/google-maps/google-maps
     LoginLayoutComponent,
     LoadingComponent,
     GoogleMapComponent,
+    SearchTrackingComponent,
+    DetalleTrackingComponent,
+    ErrorComponent, 
    
   ],
   imports: [
+    CommonModule,
+    MatDialogModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,7 @@
+<div class="contenedor">
+    <div class="erroExclamation">!</div>
+    <div class="errores">
+        <div class="contenido" *ngFor="let error of errorData">{{error}}</div>
+    </div>
+    <input mat-button tabindex="-1" class="btn btn-danger btn-sm" type="button" (click)="cerrar()" value="Cerrar">
+</div>

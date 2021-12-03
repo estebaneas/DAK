@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Loader } from '@googlemaps/js-api-loader';
+import { coordenadas } from '../../models/coordenadas';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-google-map',
@@ -9,31 +12,40 @@ import { map } from 'rxjs/operators';
 })
 export class GoogleMapComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router:Router) {}
+  coords:coordenadas = JSON.parse(sessionStorage.getItem("coords")!);
+   
+  
   ngOnInit(): void {
+    
+    if(sessionStorage.getItem("coords")==null){
+      this.router.navigate(["/tracking-home"]);
+    }
+    sessionStorage.clear();
     let loader = new Loader({
       apiKey: "AIzaSyCivABarU0Y-yPySojqjaL_glEdTIE2GaU",
-
+      
     })
-    var posicion;
 
+    let lat = Number(this.coords.lat);
+    let lng = Number(this.coords.lng);
     
-
-
     loader.load().then(()=>{
       const map = new google.maps.Map(document.getElementById("map")as HTMLDivElement,{
-        center:{lat:-1.2931386624525825, lng:36.82026083504807},zoom:10
+        center:{lat, lng},zoom:15,disableDefaultUI:true
       })
 
-      
       var marcador = new google.maps.Marker({
         position:null,
         map:null
       })
+      let latLng = new google.maps.LatLng(lat,lng)
+      console.log(latLng)
+      colocarMarcador(latLng,map,marcador);
 
-      //let latlng = new google.maps.LatLng(1,1);
-      //console.log(latlng.lat());
+
+      //let latlng = new google.maps.LatLng(coordenadas);
+     // console.log(latlng.lat());
 
       /*map.addListener("click", function(r:any){
         let h = r
@@ -50,18 +62,17 @@ export class GoogleMapComponent implements OnInit {
        
        colocarMarcador(latlng,map,marcador);
       })*/
-      let test = new google.maps.LatLng(-0.8373335735951748, 36.75251554019303)
+     /* let test = new google.maps.LatLng(-0.8373335735951748, 36.75251554019303)
       marcador.setPosition(test)
       marcador.setMap(map);
+      */
       function colocarMarcador(posicion:any, map:any, marcador:any) {
-       // if (cliente) {
            marcador.setPosition(posicion)
            marcador.setMap(map)
-           //estaMarcado = true;
         }
       
       
-      var poligonoprueba = new google.maps.Polygon({
+      /*var poligonoprueba = new google.maps.Polygon({
         strokeColor: "#FF0000",
         strokeOpacity: 0.8,
         strokeWeight: 2,
@@ -77,9 +88,8 @@ export class GoogleMapComponent implements OnInit {
         //map: map,
         //path: [{"lat":0,"lng":0},{"lat":1,"lng":0},{"lat":1,"lng":1},{"lat":0,"lng":1}],
         //map: map,
-      });
+      });*/
 
-   
     })
 
     
