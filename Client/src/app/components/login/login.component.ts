@@ -22,7 +22,6 @@ export class LoginComponent {
 
   login(values:any)
   {
-    console.log(values);
     this.auth.verficiarCliente(this.formLogin.value['user'], this.formLogin.value['password']);
   }
 

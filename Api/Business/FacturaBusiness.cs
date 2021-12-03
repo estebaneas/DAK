@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Interfaces;
+using Business.Strategies.GrupoConcreteStrategies;
 using Business.Strategies.PagoConcreteStrategies;
 using CommonSolution.Dtos;
 using DataAccess.Repositories;
@@ -40,6 +41,27 @@ namespace Business
             factura.MontoFinal = pago.calcularMontoFinal(factura.Monto);
 
             return factura;
+        }
+
+        public double calcularPrecio(int distancia, double peso, int grupo)
+        {
+            double precio;
+            IGrupo iGrupo;
+            switch (grupo)
+            {
+                case 1:
+                    iGrupo = new Peso();
+                    break;
+                case 2:
+                    iGrupo = new DistanciaPeso();
+                    break;
+                default:
+                    iGrupo = new Fijo();
+                    break;
+            }
+
+            precio = iGrupo.calcularPrecio(distancia, peso);
+            return precio;
         }
 
         public FacturaDto pagarFactura(FacturaDto factura)

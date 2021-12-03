@@ -12,6 +12,5 @@ namespace CommonSolution.Dtos
         public string Nombre { get; set; }
         public string Apellido { get; set; }
 
-        public virtual ClienteDto Cliente { get; set; }
     }
 }

@@ -9,6 +9,7 @@ import { IngresarPaqueteComponent } from './components/paquete/ingresar-paquete/
 import { GoogleMapComponent } from './components/shared/google-map/google-map.component';
 import { TrackingHomeComponent } from './components/tracking/tracking-home/tracking-home.component';
 import { TrackingResultsComponent } from './components/tracking/tracking-results/tracking-results.component';
+import { PagoComponent } from './components/pago/pago.component';
 
 const routes: Routes = [
   
@@ -18,7 +19,7 @@ const routes: Routes = [
     {path:'home',component:HomeComponent},
     {path:'login',component:LoginComponent},
     {path:'ingresarPaquete', component:IngresarPaqueteComponent},
-  
+    {path:'pago', component:PagoComponent},
   ]},
 
   {path:'deta',component:DetalleTrackingComponent},

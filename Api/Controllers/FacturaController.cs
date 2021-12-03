@@ -26,6 +26,13 @@ namespace Api.Controllers
         }
 
         [HttpGet]
+        [ActionName ("CalcularPrecio")]
+        public double calcularMonto(int distancia, double peso, int grupo)
+        {
+            return this.facutraBs.calcularPrecio(distancia, peso, grupo);
+        }
+
+        [HttpGet]
         [ActionName ("CalcularPrecioFinal")]
         public FacturaDto calcularMontoFinal([FromBody] FacturaDto factura)
         {
