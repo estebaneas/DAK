@@ -1,4 +1,5 @@
 import { Injectable,Output,EventEmitter } from '@angular/core';
+import { coordenadas } from 'src/app/components/models/coordenadas';
 @Injectable({
   providedIn: 'root'
 })

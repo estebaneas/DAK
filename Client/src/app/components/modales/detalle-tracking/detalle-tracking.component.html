@@ -1,0 +1,16 @@
+<div class="botones">
+    <div mat-button tabindex="-1" class="btn btn-danger" type="button" (click)="cerrar()" >X</div>
+</div>
+<div class="container contenedor ">
+
+    <div class="overflow-auto content">
+        <div>Detalles</div>
+        <ul class="list-group" id="lista">
+          <li class="list-group-item "*ngFor="let detalle of detalles">
+            <div class="text-left">{{detalle.detalle}}</div> 
+            <div class="text-right">{{detalle.fecha}}</div> 
+          </li>
+        </ul>
+    </div>
+   
+ </div>

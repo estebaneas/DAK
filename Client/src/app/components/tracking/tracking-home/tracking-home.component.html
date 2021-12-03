@@ -3,12 +3,19 @@
     <form [formGroup]="formTracking">
       <div class="form-group">
         <small class="form-text text-muted">Ingrese el numero de tracking.</small>
-        <input type="input" class="form-control" placeholder="Ej: DAK813275448216" formControlName="numeroTracking">
+        <input  (keyup)="validate()" type="input" class="form-control" placeholder="Ej: DAK813275448216" formControlName="numeroTracking">
+        <div class="badge badge-danger" >{{mensaje}}</div>
       </div>
-      <button type="submit" (click)="verificar()" class="btn btn-info">Rastrear</button>
+      <button mat-button tabindex="-1" [disabled]="isDisabled" type="submit" (click)="verificar()" class="btn btn-info">Rastrear</button>
+
     </form>
+
   </div>
+
 </div>
+
+<router-outlet></router-outlet>
+
   <!--"-->
   <!---->
   <!-- formControlName="numeroTracking"-->

@@ -18,12 +18,17 @@ import { LoginLayoutComponent } from './components/layouts/login-layout/login-la
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchTrackingComponent } from './components/tracking/search-tracking/search-tracking.component';
+import { DetalleTrackingComponent } from './components/modales/detalle-tracking/detalle-tracking.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { ErrorComponent } from './components/modales/error/error.component';
 import { PagoComponent } from './components/pago/pago.component';
 import { GoogleMapsComponent } from './components/shared/google-maps/google-maps.component';
 
 @NgModule({
   declarations: [
-
     AppComponent,
     TrackingLayoutComponent,
     TrackingHomeComponent,
@@ -38,18 +43,26 @@ import { GoogleMapsComponent } from './components/shared/google-maps/google-maps
     FooterComponent,
     LoginLayoutComponent,
     LoadingComponent,
+    SearchTrackingComponent,
+    DetalleTrackingComponent,
+    ErrorComponent, 
     PagoComponent,
     GoogleMapsComponent
   ],
   imports: [
+    CommonModule,
+    MatDialogModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -38,6 +38,7 @@ namespace TrackingMoule.ConcreteClasses
         /*Trim('\\', '\"')*/
         public  CoordenadasDto getHubicacion()
         {
+            try { 
             string url = "https://localhost:44301/api/Tracking/GetLocation?trkNumber=" + this.NumeroTracking;
             WebRequest request = WebRequest.Create(url);
             HttpWebResponse respuesta = (HttpWebResponse)request.GetResponse();
@@ -50,6 +51,11 @@ namespace TrackingMoule.ConcreteClasses
             }
             CoordenadasDto coords = new JavaScriptSerializer().Deserialize<CoordenadasDto>(hubi);
             return  coords;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
     }
