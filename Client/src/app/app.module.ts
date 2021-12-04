@@ -14,7 +14,7 @@ import { TrackingLayoutComponent } from './components/layouts/tracking-layout/tr
 import { TrackingHomeComponent } from './components/tracking/tracking-home/tracking-home.component';
 import { TrackingHeaderComponent } from './components/tracking/tracking-header/tracking-header.component';
 import { TrackingFooterComponent } from './components/tracking/tracking-footer/tracking-footer.component';
-import { TrackingResultsComponent } from './components/tracking/tracking-results/tracking-results.component';
+// import { TrackingResultsComponent } from './components/tracking/tracking-results/tracking-results.component';
 import { HomeComponent } from './components/home/home.component';
 import { MainLayoutComponent } from './components/layouts/main-layout/main-layout.component';
 import { LoginComponent } from './components/login/login.component';
@@ -30,7 +30,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { ErrorComponent } from './components/modales/error/error.component';
 import { PagoComponent } from './components/pago/pago.component';
-import { GoogleMapsComponent } from './components/shared/google-maps/google-maps.component';
 
 //Angular Material
 import { MatSliderModule } from '@angular/material/slider';
@@ -38,6 +37,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field'
 // import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+// import { GoogleMapsComponent } from './components/shared/google-maps/google-maps.component';
 
 
 @NgModule({
@@ -47,7 +47,7 @@ import { MatInputModule } from '@angular/material/input';
     TrackingHomeComponent,
     TrackingHeaderComponent,
     TrackingFooterComponent,
-    TrackingResultsComponent,
+    // TrackingResultsComponent,
     HomeComponent,
     MainLayoutComponent,
     LoginComponent,
@@ -60,7 +60,7 @@ import { MatInputModule } from '@angular/material/input';
     DetalleTrackingComponent,
     ErrorComponent, 
     PagoComponent,
-    GoogleMapsComponent
+    // GoogleMapsComponent
   ],
   imports: [
     CommonModule,
@@ -76,7 +76,8 @@ import { MatInputModule } from '@angular/material/input';
     MatAutocompleteModule,
     MatFormFieldModule,
     // MatFormField,
-    MatInputModule
+    MatInputModule,
+    BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent]
 })

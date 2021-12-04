@@ -25,7 +25,7 @@ export class PagoComponent{
     this.paquetePago = JSON.parse(localStorage.getItem("paquete") as string);
     this.PagoService.calcularMonto()
     .subscribe((data: any) => {
-      this.condados = data;
+      //TODO
       this.loading = false;
     });
     this.loading = false;
@@ -37,6 +37,7 @@ export class PagoComponent{
     //getted from event
     // console.log(this.selected);
   }
+
   formPago = new FormGroup(
     {
       metodoDePago: new FormControl('', [Validators.required])

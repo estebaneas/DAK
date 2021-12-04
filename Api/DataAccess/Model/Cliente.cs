@@ -29,7 +29,7 @@ namespace DataAccess.Model
         public string Detalle_direccion { get; set; }
         public string Email { get; set; }
         public int id_condado { get; set; }
-        public int grupo { get; set; }
+        public Nullable<int> grupo { get; set; }
     
         public virtual Condado Condado { get; set; }
         public virtual Empresa Empresa { get; set; }
