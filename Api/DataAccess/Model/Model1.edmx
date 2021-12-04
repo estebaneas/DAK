@@ -24,6 +24,7 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="20" />
+          <Property Name="Distancia" Type="int" />
         </EntityType>
         <EntityType Name="Empresa">
           <Key>
@@ -256,6 +257,7 @@
           <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Cliente" Relationship="Self.FK_Cliente_Condado" FromRole="Condado" ToRole="Cliente" />
           <NavigationProperty Name="Paquete" Relationship="DAKModel.FK_Paquete_Condado" FromRole="Condado" ToRole="Paquete" />
+          <Property Name="Distancia" Type="Int32" />
         </EntityType>
         <EntityType Name="Empresa">
           <Key>
@@ -490,6 +492,7 @@
           <EntitySetMapping Name="Condado">
             <EntityTypeMapping TypeName="DAKModel.Condado">
               <MappingFragment StoreEntitySet="Condado">
+                <ScalarProperty Name="Distancia" ColumnName="Distancia" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </MappingFragment>

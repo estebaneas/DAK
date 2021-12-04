@@ -16,7 +16,6 @@ export class IngresarPaqueteComponent{
 
   condados: any[] = [];
   loading: boolean = true;
-  options: string[] = ['Angular', 'React', 'Vue']
 
   constructor(private condadoService: CondadoService,
               private PagoService: PagoService,
@@ -28,6 +27,8 @@ export class IngresarPaqueteComponent{
       this.condados = data;
       this.loading = false;
     });
+
+
    }
 
    formPaquete = new FormGroup(
@@ -45,14 +46,17 @@ export class IngresarPaqueteComponent{
   
   pagar(paquete: paquete)
   {
+
     paquete.remitente = this.formPaquete.value['remitente'],
     paquete.destinatario = this.formPaquete.value['destinatario'],
     paquete.calle = this.formPaquete.value['calle'],
     paquete.condado = this.formPaquete.value['condado'],
+    paquete.distancia = this.condados.find(f=> f.Nombre == this.formPaquete.value['condado']).Distancia,
     paquete.localidad = this.formPaquete.value['localidad'],
     paquete.detalle = this.formPaquete.value['detalle'],
     paquete.peso = this.formPaquete.value['peso']
 
+    console.log(paquete);
     //Se guarda en localStorage
     this.PagoService.localStorage(paquete);
     //Se navega a pago

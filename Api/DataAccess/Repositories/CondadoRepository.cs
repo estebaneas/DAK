@@ -26,8 +26,8 @@ namespace DataAccess.Repositories
                 {
                     try
                     {
-                        var result = context.Condado.ToList();
-                        return _condadoMapper.toEntity(result); ;
+                        var result = context.Condado.OrderBy(o => o.Nombre).ToList();
+                        return _condadoMapper.toEntity(result);
                     }
                     catch (Exception ex)
                     {

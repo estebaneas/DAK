@@ -23,6 +23,7 @@ namespace DataAccess.Model
     
         public int ID { get; set; }
         public string Nombre { get; set; }
+        public Nullable<int> Distancia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cliente> Cliente { get; set; }
