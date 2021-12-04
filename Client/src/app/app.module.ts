@@ -3,6 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
+//Componentes
 import { TrackingLayoutComponent } from './components/layouts/tracking-layout/tracking-layout.component';
 import { TrackingHomeComponent } from './components/tracking/tracking-home/tracking-home.component';
 import { TrackingHeaderComponent } from './components/tracking/tracking-header/tracking-header.component';
@@ -16,14 +23,19 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { LoginLayoutComponent } from './components/layouts/login-layout/login-layout.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
-import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 import { PagoComponent } from './components/pago/pago.component';
 import { GoogleMapsComponent } from './components/shared/google-maps/google-maps.component';
 
+//Angular Material
+import { MatSliderModule } from '@angular/material/slider';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field'
+// import { MatFormField } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+
 @NgModule({
   declarations: [
-
     AppComponent,
     TrackingLayoutComponent,
     TrackingHomeComponent,
@@ -48,6 +60,12 @@ import { GoogleMapsComponent } from './components/shared/google-maps/google-maps
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    NoopAnimationsModule,
+    MatSliderModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    // MatFormField,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

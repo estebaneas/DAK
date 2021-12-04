@@ -13,9 +13,6 @@
                 <a href="#" class="stretched-link">Agregar Remitente</a>
             </div>
             <div class="form-group col-md-8">
-                <a href="#" class="stretched-link">Buscar Remitente</a>
-            </div>
-            <div class="form-group col-md-8">
                 <label for="inputDestinatario">Destinatario</label>
                 <input type="text" class="form-control" id="inputDestinatario" placeholder="Peter Parker" formControlName="destinatario">
                 <span *ngIf="destinatario && destinatario.invalid && destinatario.touched" class="error-block">Destinatario invalido</span>
@@ -23,16 +20,17 @@
             <div class="form-group col-md-8">
                 <a href="#" class="stretched-link">Agregar Destinatario</a>
             </div>
-            <div class="form-group col-md-8">
-                <a href="#" class="stretched-link">Buscar Destinatario</a>
-            </div>
             <div class="form-control-lg">
             </div>
             <div class="form-control-lg">
             </div>
             <div class="form-control-lg">
             </div>
-            <button type="submit" class="btn btn-dark">Ingresar</button>
+            <div class="form-control-lg">
+            </div>
+            <div class="form-control-lg">
+            </div>
+            <button type="submit" [disabled]="formPaquete.invalid" class="btn btn-dark">Ingresar</button>
         </div>
         <div class="column">
             <div class="form-group col-md-8">

@@ -9,5 +9,5 @@
         <input type="password" class="form-control" id="password" placeholder="Contraseña" formControlName="password">
         <span *ngIf="password && password.invalid && password.touched" class="error-block">Contraseña invalida</span>
     </div>
-    <button [disabled]="formLogin.invalid " type="submit " class="btn btn-dark ">Login</button>
+    <button [disabled]="formLogin.invalid" type="submit " class="btn btn-dark ">Login</button>
 </form>

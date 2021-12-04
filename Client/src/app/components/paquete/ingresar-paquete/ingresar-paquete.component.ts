@@ -1,9 +1,11 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
+
 import { paquete } from '../../models/paquete';
+
 import { CondadoService } from 'src/app/services/dak/condado/condado.service';
 import { PagoService } from '../../../services/dak/pago/pago.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ingresar-paquete',
@@ -14,6 +16,7 @@ export class IngresarPaqueteComponent{
 
   condados: any[] = [];
   loading: boolean = true;
+  options: string[] = ['Angular', 'React', 'Vue']
 
   constructor(private condadoService: CondadoService,
               private PagoService: PagoService,
