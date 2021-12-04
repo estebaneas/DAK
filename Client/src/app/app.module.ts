@@ -14,7 +14,7 @@ import { TrackingLayoutComponent } from './components/layouts/tracking-layout/tr
 import { TrackingHomeComponent } from './components/tracking/tracking-home/tracking-home.component';
 import { TrackingHeaderComponent } from './components/tracking/tracking-header/tracking-header.component';
 import { TrackingFooterComponent } from './components/tracking/tracking-footer/tracking-footer.component';
-// import { TrackingResultsComponent } from './components/tracking/tracking-results/tracking-results.component';
+import { TrackingResultsComponent } from './components/tracking/tracking-results/tracking-results.component';
 import { HomeComponent } from './components/home/home.component';
 import { MainLayoutComponent } from './components/layouts/main-layout/main-layout.component';
 import { LoginComponent } from './components/login/login.component';
@@ -37,7 +37,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field'
 // import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-// import { GoogleMapsComponent } from './components/shared/google-maps/google-maps.component';
+import { ClientAddComponent } from './components/client-add/client-add.component';
+import { GoogleMapComponent } from './components/shared/google-map/google-map.component';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import { MatInputModule } from '@angular/material/input';
     TrackingHomeComponent,
     TrackingHeaderComponent,
     TrackingFooterComponent,
-    // TrackingResultsComponent,
+    TrackingResultsComponent,
     HomeComponent,
     MainLayoutComponent,
     LoginComponent,
@@ -60,7 +61,8 @@ import { MatInputModule } from '@angular/material/input';
     DetalleTrackingComponent,
     ErrorComponent, 
     PagoComponent,
-    // GoogleMapsComponent
+    ClientAddComponent,
+    GoogleMapComponent
   ],
   imports: [
     CommonModule,

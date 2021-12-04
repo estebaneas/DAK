@@ -10,6 +10,7 @@ import { GoogleMapComponent } from './components/shared/google-map/google-map.co
 import { TrackingHomeComponent } from './components/tracking/tracking-home/tracking-home.component';
 import { TrackingResultsComponent } from './components/tracking/tracking-results/tracking-results.component';
 import { PagoComponent } from './components/pago/pago.component';
+import { ClientAddComponent } from './components/client-add/client-add.component';
 
 const routes: Routes = [
   
@@ -20,6 +21,7 @@ const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path:'ingresarPaquete', component:IngresarPaqueteComponent},
     {path:'pago', component:PagoComponent},
+    {path:'agregarCliente', component:ClientAddComponent},
   ]},
 
   {path:'deta',component:DetalleTrackingComponent},

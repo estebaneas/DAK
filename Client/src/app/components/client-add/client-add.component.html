@@ -1,0 +1,80 @@
+<!-- (ngSubmit)="login(formLogin.value)" -->
+<form [formGroup]="formCliente" class="animated fadeIn">
+    <div class="form-group col-md-4">
+        <label for="telefono">Telefono</label>
+        <input type=" text " class="form-control" id="telefono" aria-describedby="telefonoAyuda" placeholder="099 999 999" formControlName="telefono">
+        <!-- <span *ngIf="user && user.invalid && user.touched" class="error-block">Usuario invalido</span> -->
+    </div>
+    <div class="form-group col-md-4">
+        <label for="localidad">Localidad</label>
+        <input type=" text " class="form-control" id="localidad" aria-describedby="localidadAyuda" placeholder="Localidad" formControlName="localidad">
+        <!-- <span *ngIf="user && user.invalid && user.touched" class="error-block">Usuario invalido</span> -->
+    </div>
+    <div class="form-group col-md-4">
+        <label for="calle">Calle</label>
+        <input type=" text " class="form-control" id="calle" aria-describedby="calleAyuda" placeholder="Calle" formControlName="calle">
+        <!-- <span *ngIf="user && user.invalid && user.touched" class="error-block">Usuario invalido</span> -->
+    </div>
+    <div class="form-group col-md-4">
+        <label for="detalleDireccion">Detalle direccion</label>
+        <input type=" text " class="form-control" id="detalleDireccion" aria-describedby="detalleDireccionAyuda" placeholder="Detalle direccion" formControlName="detalleDireccion">
+        <!-- <span *ngIf="user && user.invalid && user.touched" class="error-block">Usuario invalido</span> -->
+    </div>
+    <div class="form-group col-md-4">
+        <label for="email">Email</label>
+        <input type=" email " class="form-control" id="email" aria-describedby="emailAyuda" placeholder="abcde@efghi.com" formControlName="email">
+        <!-- <span *ngIf="user && user.invalid && user.touched" class="error-block">Usuario invalido</span> -->
+    </div>
+    <div class="form-group">
+        <h2 class="form-group-label" for="exampleRadios1">
+            Tipo de cliente
+        </h2>
+    </div>
+    <div class="form-group">
+        <input class="form-group-input" type="radio" name="radio" (change)="cambiarTrue()">
+        <label class=" form-group-label mr-2 " for="exampleRadios1 ">
+          Persona
+        </label>
+        <input class="form-group-input" type="radio" name="radio" (change)="cambiarFalse()">
+        <label class="form-group-label" for="exampleRadios2 ">
+          Empresa
+        </label>
+    </div>
+    <div class="form-group col-md-4 animated fadeIn" *ngIf="isChecked">
+        <label for="documento ">Documento</label>
+        <input type=" text " class="form-control " id="documento " aria-describedby="documentoAyuda " placeholder="1.234.567-8 " formControlName="documento">
+        <!-- <span *ngIf="user && user.invalid && user.touched " class="error-block ">Usuario invalido</span> -->
+    </div>
+    <div class="form-group col-md-4 animated fadeIn" *ngIf="isChecked">
+        <label for="nombre ">Nombre</label>
+        <input type=" text " class="form-control " id="nombre " aria-describedby="nombreAyuda " placeholder="Nombre " formControlName="nombre">
+        <!-- <span *ngIf="user && user.invalid && user.touched " class="error-block ">Usuario invalido</span> -->
+    </div>
+    <div class="form-group col-md-4 animated fadeIn" *ngIf="isChecked">
+        <label for="apellido ">Apellido</label>
+        <input type=" text " class="form-control " id="apellido " aria-describedby="apellidoAyuda " placeholder="Apellido " formControlName="apellido">
+        <!-- <span *ngIf="user && user.invalid && user.touched " class="error-block ">Usuario invalido</span> -->
+    </div>
+    <div class="form-group col-md-4 animated fadeIn" *ngIf="!isChecked">
+        <label for="rut ">RUT</label>
+        <input type=" text " class="form-control " id="rut " aria-describedby="rutAyuda " placeholder="RUT " formControlName="rut">
+        <!-- <span *ngIf="user && user.invalid && user.touched " class="error-block ">Usuario invalido</span> -->
+    </div>
+    <div class="form-group col-md-4 animated fadeIn" *ngIf="!isChecked">
+        <label for="razonSocial ">Razon Social</label>
+        <input type=" text " class="form-control " id="razonSocial " aria-describedby="razonSocialAyuda " placeholder="Razon Social " formControlName="razonSocial">
+        <!-- <span *ngIf="user && user.invalid && user.touched " class="error-block ">Usuario invalido</span> -->
+    </div>
+    <div class="form-group col-md-4">
+        <label for="inputCondado">Grupo</label>
+        <select id="inputCondado" class="form-control" formControlName="grupo">
+          <option *ngFor="let item of items">{{item.name}}</option>
+        </select>
+        <!-- <span *ngIf="condado && condado.invalid && condado.touched" class="error-block">Condado invalido</span> -->
+    </div>
+    <button [disabled]="formCliente.invalid " type="submit " class="btn btn-dark ">Login</button>
+    <div class="form-control-lg">
+    </div>
+    <div class="form-control-lg">
+    </div>
+</form>
