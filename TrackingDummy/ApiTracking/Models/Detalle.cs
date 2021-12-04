@@ -7,17 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccess.Model
+namespace ApiTracking.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class Detalle
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int numero { get; set; }
+        public int TrackingId { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public string detalle1 { get; set; }
+    
+        public virtual Tracking Tracking { get; set; }
     }
 }

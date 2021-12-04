@@ -1,4 +1,14 @@
 /* Animaciones */
+.trackingError {
+
+    overflow: visible;
+
+  }
+
+  .test .mat-dialog-container  {
+    overflow:visible;
+}
+
 
 .animated {
     -webkit-animation-duration: 1s;

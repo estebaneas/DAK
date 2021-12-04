@@ -1,0 +1,33 @@
+.contenedor{
+    height: 90%;
+}
+
+li{
+    display: flex;
+    flex-direction: row;
+}
+.content{
+    height: 100%;
+    padding: 2px;
+}
+li div{
+    width: 50%;
+}
+
+/*input{
+    position:sticky;
+    bottom: 0px;
+
+}*/
+
+.botones{
+    height: 10%;
+}
+.botones div{
+    float:right;
+    margin-top: -10px;
+    
+}
+
+
+

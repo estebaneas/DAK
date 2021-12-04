@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TrackingDePaquetesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Detalle">
+          <Key>
+            <PropertyRef Name="numero" />
+          </Key>
+          <Property Name="numero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrackingId" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="detalle" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tracking">
+          <Key>
+            <PropertyRef Name="IDTrack" />
+          </Key>
+          <Property Name="numero" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="latitud" Type="float" />
+          <Property Name="longitud" Type="float" />
+          <Property Name="IDTrack" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Detalle_Tracking">
+          <End Role="Tracking" Type="Self.Tracking" Multiplicity="1" />
+          <End Role="Detalle" Type="Self.Detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tracking">
+              <PropertyRef Name="IDTrack" />
+            </Principal>
+            <Dependent Role="Detalle">
+              <PropertyRef Name="TrackingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TrackingDePaquetesModelStoreContainer">
+          <EntitySet Name="Detalle" EntityType="Self.Detalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tracking" EntityType="Self.Tracking" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Detalle_Tracking" Association="Self.FK_Detalle_Tracking">
+            <End Role="Tracking" EntitySet="Tracking" />
+            <End Role="Detalle" EntitySet="Detalle" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TrackingDePaquetesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TrackingDePaquetesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Detalle" EntityType="TrackingDePaquetesModel.Detalle" />
+          <EntitySet Name="Tracking" EntityType="TrackingDePaquetesModel.Tracking" />
+          <AssociationSet Name="FK_Detalle_Tracking" Association="TrackingDePaquetesModel.FK_Detalle_Tracking">
+            <End Role="Tracking" EntitySet="Tracking" />
+            <End Role="Detalle" EntitySet="Detalle" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Detalle">
+          <Key>
+            <PropertyRef Name="numero" />
+          </Key>
+          <Property Name="numero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrackingId" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="detalle1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tracking" Relationship="TrackingDePaquetesModel.FK_Detalle_Tracking" FromRole="Detalle" ToRole="Tracking" />
+        </EntityType>
+        <EntityType Name="Tracking">
+          <Key>
+            <PropertyRef Name="IDTrack" />
+          </Key>
+          <Property Name="numero" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="latitud" Type="Double" />
+          <Property Name="longitud" Type="Double" />
+          <Property Name="IDTrack" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Detalle" Relationship="TrackingDePaquetesModel.FK_Detalle_Tracking" FromRole="Tracking" ToRole="Detalle" />
+        </EntityType>
+        <Association Name="FK_Detalle_Tracking">
+          <End Type="TrackingDePaquetesModel.Tracking" Role="Tracking" Multiplicity="1" />
+          <End Type="TrackingDePaquetesModel.Detalle" Role="Detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tracking">
+              <PropertyRef Name="IDTrack" />
+            </Principal>
+            <Dependent Role="Detalle">
+              <PropertyRef Name="TrackingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TrackingDePaquetesModelStoreContainer" CdmEntityContainer="TrackingDePaquetesEntities">
+          <EntitySetMapping Name="Detalle">
+            <EntityTypeMapping TypeName="TrackingDePaquetesModel.Detalle">
+              <MappingFragment StoreEntitySet="Detalle">
+                <ScalarProperty Name="detalle1" ColumnName="detalle" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="TrackingId" ColumnName="TrackingId" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tracking">
+            <EntityTypeMapping TypeName="TrackingDePaquetesModel.Tracking">
+              <MappingFragment StoreEntitySet="Tracking">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="IDTrack" ColumnName="IDTrack" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="latitud" ColumnName="latitud" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

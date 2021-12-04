@@ -75,19 +75,29 @@ namespace TrackingMoule.Repository
         
         public TrackingDto getTracking(string Numerotracking)
         {
-            using (DAK_TRACKINGEntities context = new DAK_TRACKINGEntities())
-            {
-                Tracking tracking = context.Tracking.AsNoTracking().Include("DetalleTracking").AsNoTracking().FirstOrDefault(t => t.NumeroTracking == Numerotracking);
-                return new TrackingDto() {
-                    numeroTacking=tracking.NumeroTracking,
-                    detalles = tracking.DetalleTracking.Select(d => new DetalleDto {
-                        detalle = d.Detalle,
-                        Fecha = d.Fecha
-                    }).ToList(),
-                    lastUpdate = tracking.UlrimaActualizacion
-                };
-                
+            try {
+                using (DAK_TRACKINGEntities context = new DAK_TRACKINGEntities())
+                {
+                    Tracking tracking = context.Tracking.AsNoTracking().Include("DetalleTracking").AsNoTracking().FirstOrDefault(t => t.NumeroTracking == Numerotracking);
+                    return new TrackingDto()
+                    {
+                        numeroTacking = tracking.NumeroTracking,
+                        detalles = tracking.DetalleTracking.Select(d => new DetalleDto
+                        {
+                            detalle = d.Detalle,
+                            Fecha = d.Fecha
+                        }).ToList(),
+                        lastUpdate = tracking.UlrimaActualizacion
+                    };
+
+                }
             }
+            catch(Exception ex) {
+
+                return null;
+            
+            }
+            
         }
 
     }
