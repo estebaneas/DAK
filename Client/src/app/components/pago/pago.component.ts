@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { paquete } from '../models/paquete';
+import { PagoService } from '../../services/dak/pago/pago.service';
 
 @Component({
   selector: 'app-pago',
@@ -19,11 +20,14 @@ export class PagoComponent{
   ];
   paquetePago : paquete;
 
-  constructor() { 
+  constructor(private PagoService: PagoService) { 
 
     this.paquetePago = JSON.parse(localStorage.getItem("paquete") as string);
-    console.log(this.paquetePago.peso);
-    console.log(this.paquetePago.localidad);
+    this.PagoService.calcularMonto()
+    .subscribe((data: any) => {
+      //TODO
+      this.loading = false;
+    });
     this.loading = false;
     
   }
@@ -33,6 +37,7 @@ export class PagoComponent{
     //getted from event
     // console.log(this.selected);
   }
+
   formPago = new FormGroup(
     {
       metodoDePago: new FormControl('', [Validators.required])

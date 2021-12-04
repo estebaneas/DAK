@@ -16,7 +16,7 @@ namespace CommonSolution.Dtos
         public string Detalle_direccion { get; set; }
         public string Email { get; set; }
         public int id_condado { get; set; }
-        public int grupo { get; set; }
+        public int? grupo { get; set; }
 
         public EmpresaDto Empresa { get; set; }
         public PersonaDto Persona { get; set; }

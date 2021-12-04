@@ -18,6 +18,12 @@ export class ClientService {
   }
 
   // Obtiene Lista Clientes
+  addClient() {
+    return this.getQuery('client')
+      .pipe(map(data => data));
+  }
+
+  // Obtiene Lista Clientes
   getClientList() {
     return this.getQuery('client')
       .pipe(map(data => data));

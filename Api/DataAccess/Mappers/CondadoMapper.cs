@@ -15,6 +15,7 @@ namespace DataAccess.Mappers
             CondadoDto salida = new CondadoDto();
             salida.ID = entrada.ID;
             salida.Nombre = entrada.Nombre;
+            salida.Distancia = entrada.Distancia;
             return salida;
         }
 
