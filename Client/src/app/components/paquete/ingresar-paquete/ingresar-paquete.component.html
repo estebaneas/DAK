@@ -1,15 +1,15 @@
 <app-loading *ngIf="loading" class="m-5"></app-loading>
 
-<form [formGroup]="formPaquete" (ngSubmit)="pagar(formPaquete.value)" *ngIf="!loading" class="animated fadeIn">
+<form [formGroup]="formPaquete" (ngSubmit)="pagar(formPaquete.value, remitente.value, destinatario.value)" *ngIf="!loading" class="animated fadeIn">
     <div class="row">
         <div class="column">
 
             <div class="form-group col-md-8">
                 <mat-form-field>
                     <mat-label>
-                        Pais
+                        Remitente
                     </mat-label>
-                    <input type="text" matInput [formControl]="control" [matAutocomplete]="auto">
+                    <input type="text" matInput [formControl]="control" [matAutocomplete]="auto" name="remitente" #remitente>
                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                         <mat-option *ngFor="let documento of filClients | async" [value]="documento">
                             {{documento}}
@@ -23,12 +23,12 @@
             <div class="form-group col-md-8">
                 <mat-form-field>
                     <mat-label>
-                        Pais
+                        Destinatario
                     </mat-label>
-                    <input type="text" matInput [formControl]="control" [matAutocomplete]="auto">
+                    <input type="text" matInput [formControl]="control" [matAutocomplete]="auto" name="destinatario" #destinatario>
                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                        <mat-option *ngFor="let country of filClients | async" [value]="country">
-                            {{country}}
+                        <mat-option *ngFor="let documento of filClients | async" [value]="documento">
+                            {{documento}}
                         </mat-option>
                     </mat-autocomplete>
                 </mat-form-field>
@@ -47,6 +47,8 @@
             <div class="form-control-lg">
             </div>
             <button type="submit" [disabled]="formPaquete.invalid" class="btn btn-dark">Ingresar</button>
+            <div class="form-control-lg">
+            </div>
         </div>
         <div class="column">
             <div class="form-group col-md-8">

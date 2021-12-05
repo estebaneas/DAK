@@ -34,9 +34,9 @@ namespace Api.Controllers
 
         [HttpGet]
         [ActionName ("CalcularPrecioFinal")]
-        public FacturaDto calcularMontoFinal([FromBody] FacturaDto factura)
+        public double calcularMontoFinal([FromBody] FacturaDto factura)
         {
-            return this.facutraBs.calcularMontoFinal(factura);
+            return this.facutraBs.calcularMontoFinal(factura).MontoFinal;
         }
 
     }

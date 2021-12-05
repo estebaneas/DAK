@@ -18,6 +18,13 @@ export class ClientService {
     return this.http.get(url)
   }
 
+  getQueryWithData(query: string, data: string) {
+
+    const url = `https://localhost:44318/api/Cliente/${query}?busqueda=${data}`;
+
+    return this.http.get(url)
+  }
+
 
   postQuery(query: string, body: any) {
 
@@ -36,8 +43,15 @@ export class ClientService {
   }
 
     // Obtiene Lista Clientes
-    getClients() {
-      return this.getQuery('ListaCliente')
+    getClients(document: string) {
+      return this.getQueryWithData('BuscarCliente', document)
+        .pipe(map(data => data));
+    }
+
+    
+    // Obtiene Lista Clientes
+    getGroup(document: string) {
+      return this.getQueryWithData('BuscarClienteGrupo', document)
         .pipe(map(data => data));
     }
 

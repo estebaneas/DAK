@@ -35,9 +35,18 @@ namespace Business
             return response;
         }
 
-        public List<ClienteDto> buscarCliente(string busqueda)
+        public List<string> buscarCliente(string busqueda)
         {
-            return this._clienteRepository.buscarClientes(busqueda);
+            List<string> documentosCliente = new List<string>();
+            var clienteResult = this._clienteRepository.buscarClientes(busqueda);
+            clienteResult.ForEach(element => documentosCliente.Add(element.Documento));
+            return documentosCliente;
+        }
+
+        public int? buscarClienteGrupo(string busqueda)
+        {  
+            return this._clienteRepository.buscarClientesGrupo(busqueda);
+            
         }
 
         public List<ClienteDto> listaCliente()

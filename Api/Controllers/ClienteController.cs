@@ -33,9 +33,16 @@ namespace Api.Controllers
 
         [HttpGet]
         [ActionName("BuscarCliente")]
-        public List<ClienteDto> buscarCliente(string busqueda)
+        public List<string> buscarCliente(string busqueda)
         {
             return this._clienteBusiness.buscarCliente(busqueda);
+        }
+
+        [HttpGet]
+        [ActionName("BuscarClienteGrupo")]
+        public int? buscarClienteGrupo(string busqueda)
+        {
+            return this._clienteBusiness.buscarClienteGrupo(busqueda);
         }
 
         [HttpGet]
