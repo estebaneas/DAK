@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tracking-layout',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackingLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService:Title) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle("DAK Tracking")
   }
 
 }

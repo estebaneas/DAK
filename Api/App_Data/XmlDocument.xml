@@ -494,5 +494,11 @@
             <param name="paquete"></param>
             <returns></returns>
         </member>
+        <member name="M:Api.Controllers.PaqueteController.getPaquetes(CommonSolution.Dtos.FiltroPaquetes)">
+            <summary>
+            Trae la lista de  paquetes
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

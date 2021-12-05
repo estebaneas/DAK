@@ -1,0 +1,125 @@
+<div>
+
+</div>
+<div class="contenedor">
+   
+    <div class="filtros filas" [formGroup]="formFiltro">
+        <div class="titulo">Listado de paquetes</div>
+        <div class="columna">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"  id="inputGroup-sizing-sm">Remitente</span>
+                </div>
+                <input type="text" placeholder="Ej: 42730160" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" formControlName="remitente">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" placeholder="asdasd" id="inputGroup-sizing-sm">Destinatario</span>
+                </div>
+                <input type="text" placeholder="Ej: 42730160" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"  formControlName="destinatario">
+            </div>
+        </div>
+        <div class="columna">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Tracking</span>
+                </div>
+                <input type="text" placeholder="Ej: DAK340423880584" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"  formControlName="tracking">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Recibido</span>
+                </div>
+                <input type="date" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"  formControlName="fechaRecibido">
+            </div>
+        </div>
+        <div class="columna">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Estado</span>
+                </div>
+                <select name="" id="" formControlName="estado">
+                    <option value="null">Ninguno</option>
+                    <option value="0">Recibido</option>
+                    <option value="1">En Proceso</option>
+                    <option value="2">Enviado</option>
+                    <option value="3">Entregado</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit" (click)="loadPaquetes()"  class="btn  btn-outline-info btn-sm">Filtrar</button>
+                <button type="submit" (click)="resetFitro()"  class="btn  btn-outline-danger btn-sm">Reset</button>
+            </div>
+           
+        </div>
+    </div>
+    
+    
+
+    <div class="cabezal">
+        <div class="col-1">
+            ID
+        </div>
+        <div class="col-2">
+            TRACKING
+        </div>
+        <div class="col-2">
+            REMIENTE
+        </div>
+        <div class="col-2">
+            DESTINATARIO
+        </div>
+        <div class="col-1">
+            TAMAÑO
+        </div>
+        <div class="col-2">
+            RECIBIDO
+        </div>
+        <div class="col-1">
+            ESTADO
+        </div>
+        <div class="col-1">
+            PESO
+        </div>
+    </div>
+
+    <div class="listaDePaquetes">
+        <div class="filas filasTabla" *ngFor="let paquete of paquetes">
+            <div class="col-1">
+               <a href=""> {{paquete.ID}}</a>
+            </div>
+            <div class="col-2">
+                {{paquete.TrackingNumero}}
+            </div>
+            <div class="col-2">
+                {{paquete.DocumentoRemitente}}
+            </div>
+            <div class="col-2">
+                {{paquete.DocumentoDestinatario}}
+            </div>
+            <div class="col-1">
+                {{paquete.Tamano|tamanoPaquete}}
+            </div>
+            <div class="col-2   ">
+                {{paquete.FechaRecibido|date: "dd-MM-yyyy"}}
+            </div>
+            <div class="col-1 badge {{paquete.Estado|estadoPaqueteStyle}}">
+                {{paquete.Estado|estadoPaquete}}
+            </div>
+            <div class="col-1">
+                {{paquete.Peso}} KG
+            </div>
+        </div>
+    </div>
+    
+    <div class="paginas filas">
+        <div> 
+           <input (click)="prePage()"  class="btn btn-info btn-sm" [disabled]="disAnterior" type="button" value="anterior "> 
+        </div>
+        <div>Páina {{paginaActual}} de {{totPaginas}}</div>
+        <div >
+            <input (click)="nextPage()" class="btn btn-info btn-sm" [disabled]="disSiguiente" type="button" value="siguiente "> 
+        </div>
+    </div>
+    
+</div>
