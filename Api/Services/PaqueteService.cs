@@ -41,6 +41,7 @@ namespace Services
                 }
                 catch (Exception ex)
                 {
+                    return null;
                     throw;
                 }
             }
