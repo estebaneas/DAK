@@ -40,6 +40,11 @@ import { MatInputModule } from '@angular/material/input';
 import { ClientAddComponent } from './components/client-add/client-add.component';
 import { GoogleMapComponent } from './components/shared/google-map/google-map.component';
 
+import { ListarPaquetesComponent } from './components/paquete/listar-paquetes/listar-paquetes.component';
+import { EstadoPaquetePipe } from './components/pipes/estado-paquete.pipe';
+import { TamanoPaquetePipe } from './components/pipes/tamano-paquete.pipe';
+import { EstadoPaqueteStylePipe } from './components/pipes/estado-paquete-style.pipe';
+
 
 @NgModule({
   declarations: [
@@ -62,7 +67,13 @@ import { GoogleMapComponent } from './components/shared/google-map/google-map.co
     ErrorComponent, 
     PagoComponent,
     ClientAddComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    ListarPaquetesComponent,
+    EstadoPaquetePipe,
+    TamanoPaquetePipe,
+    EstadoPaqueteStylePipe,
+
+
   ],
   imports: [
     CommonModule,

@@ -17,9 +17,11 @@ namespace Api.Controllers
     public class PaqueteController : ApiController
     {
         private readonly PaqueteService _paqueteService;
+        private PaqueteBusiness _paqueteBusiness;
         public PaqueteController()
         {
             this._paqueteService = new PaqueteService();
+            this._paqueteBusiness = new PaqueteBusiness();
         }
         /// <summary>
         /// Se ingresa un nuevo paquete
@@ -47,7 +49,28 @@ namespace Api.Controllers
             }
         }
 
-        
+        /// <summary>
+        /// Trae la lista de  paquetes
+        /// </summary>
+        /// <returns></returns>
+
+        [HttpGet]
+        [ActionName("GetPaquetes")]
+        public paquetesInfo getPaquetes([FromUri]FiltroPaquetes filtro)
+        {
+            /*       public DateTime fechaRecibido { get; set; }
+          public DateTime fechaEntregado { get; set; }
+          public int estado { get; set; }
+          public string documentoRemitente { get; set; }
+          public string documentoDestinatario { get; set; }
+          public int numFactura { get; set; }
+          public int pagina { get; set; }  */
+
+ 
+            return this._paqueteBusiness.getPaquetes(filtro);
+        }
+
+
 
     }
 }
