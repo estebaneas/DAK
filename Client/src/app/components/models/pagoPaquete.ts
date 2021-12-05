@@ -1,14 +1,14 @@
 export class pagoPaquete {
-    numero: number;
-    monto: number;
-    fechaDepago: Date;
-    montoFinal: number;
-    tipoPago: number;
+    Numero: number;
+    Monto: number;
+    FechaDepago: Date;
+    MontoFinal: number;
+    TipoPago: number;
     constructor(obj: any) {
-        this.numero = obj.numero;
-        this.monto = obj.monto;
-        this.fechaDepago = obj.fechaDepago;
-        this.montoFinal = obj.montoFinal;
-        this.tipoPago = obj.tipoPago;
+        this.Numero = obj.Numero;
+        this.Monto = obj.Monto;
+        this.FechaDepago = obj.FechaDepago;
+        this.MontoFinal = obj.MontoFinal;
+        this.TipoPago = obj.TipoPago;
     }
 }

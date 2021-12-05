@@ -11,7 +11,7 @@ import { pagoPaquete } from '../models/pagoPaquete';
   templateUrl: './pago.component.html',
   styleUrls: ['./pago.component.css']
 })
-export class PagoComponent{
+export class PagoComponent {
 
   loading: boolean = true;
   selected: number = 0;
@@ -21,7 +21,7 @@ export class PagoComponent{
     { id: 3, name: 'Mercado Pago' },
     { id: 4, name: 'Efectivo' },
   ];
-  paquetePago : paquete;
+  paquetePago: paquete;
   distancia: number = 0;
   peso: number = 0;
   subtotal: number = 0;
@@ -29,37 +29,38 @@ export class PagoComponent{
   total: number = 0;
 
   constructor(private PagoService: PagoService,
-              private ClientService: ClientService) { 
+    private ClientService: ClientService) {
     let grupo: number;
     //Objeto de paquete
     this.paquetePago = JSON.parse(localStorage.getItem("paquete") as string);
     //Trae el grupo dependiendo del documento del remitente
     this.ClientService.getGroup(this.paquetePago.remitente)
-    .subscribe((data: any) => {
+      .subscribe((data: any) => {
         grupo = data;
         this.PagoService.calcularMonto(this.paquetePago.distancia, this.paquetePago.peso, grupo)
-        .subscribe((data: any) => {
-          this.subtotal = data;
-          this.loading = false;
-        })
+          .subscribe((data: any) => {
+            this.subtotal = data;
+            this.loading = false;
+          })
       }
-    )
+      )
     this.loading = false;
   }
 
 
-  selectOption( event: any) {
-    //getted from event
-    console.log(this.selected);
+  selectOption(event: any) {
     let pago: pagoPaquete = new pagoPaquete({
-      numero: 0,
-      monto: this.subtotal,
-      fechaDepago: Date.now,
-      montoFinal: 0,
-      tipoPago: this.selected
+      Numero: 0,
+      Monto: this.subtotal,
+      FechaDepago: new Date(),
+      MontoFinal: 0,
+      TipoPago: this.selected
     });
 
-    this.PagoService.getCalcularPrecioDescuento(pago)
+    this.PagoService.getCalcularPrecioDescuento(pago).subscribe((data: any ) => {
+      this.total = data;
+      this.descuento = this.subtotal - this.total;});
+
   }
 
   formPago = new FormGroup(

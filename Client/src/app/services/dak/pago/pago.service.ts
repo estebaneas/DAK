@@ -18,6 +18,16 @@ export class PagoService {
     return this.http.get(url)
   }
 
+  
+  getQueryData(query: string, data: any) {
+
+    const url = `https://localhost:44318/api/Factura/${query}`;
+    console.log("Entro a getQueryData con esta data: " + data)
+    
+
+    return this.http.post(url, data, {headers: { 'Content-Type': 'application/json' }});
+  }
+
   getCalcularPrecio(distancia: number, peso: number, grupo: number) {
 
     const url = `https://localhost:44318/api/Factura/CalcularPrecio?distancia=${distancia}&peso=${peso}&grupo=${grupo}`;
@@ -28,9 +38,14 @@ export class PagoService {
   pagar() {
     //TODO Llamar al metodo de pagar y luego al metodo de guardar paquete
   }
+
+  
   getCalcularPrecioDescuento(factura: pagoPaquete)
   {
-    console.log(JSON.stringify(factura));
+    console.log("llego al servicio getCalcularPrecioDescuento con esta data: " + JSON.stringify(factura));
+    factura.FechaDepago = new Date();
+    return this.getQueryData("CalcularPrecioFinal", JSON.stringify(factura))
+    .pipe(map(data => data));
   }
 
   calcularMonto(distancia: number, peso: number, grupo: number) {
