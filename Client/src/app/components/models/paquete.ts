@@ -6,5 +6,6 @@ export interface paquete {
     distancia: number,
     localidad: string,
     detalle: string,
-    peso: number
+    peso: number,
+    grupo: number
 }

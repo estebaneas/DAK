@@ -1,9 +1,17 @@
+<app-loading *ngIf="loading" class="m-5"></app-loading>
 <!-- (ngSubmit)="login(formLogin.value)" -->
-<form [formGroup]="formCliente" class="animated fadeIn">
+<form [formGroup]="formCliente" (ngSubmit)="agregarCliente()" *ngIf="!loading" class="animated fadeIn">
     <div class="form-group col-md-4">
         <label for="telefono">Telefono</label>
         <input type=" text " class="form-control" id="telefono" aria-describedby="telefonoAyuda" placeholder="099 999 999" formControlName="telefono">
         <!-- <span *ngIf="user && user.invalid && user.touched" class="error-block">Usuario invalido</span> -->
+    </div>
+    <div class="form-group col-md-4">
+        <label for="inputCondado">Condado</label>
+        <select id="inputCondado" class="form-control" formControlName="condado">
+          <option *ngFor="let condado of condados">{{condado.Nombre}}</option>
+        </select>
+        <!-- <span *ngIf="condado && condado.invalid && condado.touched" class="error-block">Condado invalido</span> -->
     </div>
     <div class="form-group col-md-4">
         <label for="localidad">Localidad</label>
@@ -72,7 +80,7 @@
         </select>
         <!-- <span *ngIf="condado && condado.invalid && condado.touched" class="error-block">Condado invalido</span> -->
     </div>
-    <button [disabled]="formCliente.invalid " type="submit " class="btn btn-dark ">Login</button>
+    <button type="submit " class="btn btn-dark ">Login</button>
     <div class="form-control-lg">
     </div>
     <div class="form-control-lg">

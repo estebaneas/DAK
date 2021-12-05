@@ -1,24 +1,40 @@
 <app-loading *ngIf="loading" class="m-5"></app-loading>
 
-<form [formGroup]="formPaquete" (ngSubmit)="pagar(formPaquete.value)" *ngIf="!loading" class="animated fadeIn">
+<form [formGroup]="formPaquete" (ngSubmit)="pagar(formPaquete.value, remitente.value, destinatario.value)" *ngIf="!loading" class="animated fadeIn">
     <div class="row">
         <div class="column">
 
             <div class="form-group col-md-8">
-                <label for="inputRemitente">Remitente</label>
-                <input type="text" class="form-control" id="inputRemitente" placeholder="Jhon Smith" formControlName="remitente">
-                <span *ngIf="remitente && remitente.invalid && remitente.touched" class="error-block">Remitente invalido</span>
+                <mat-form-field>
+                    <mat-label>
+                        Remitente
+                    </mat-label>
+                    <input type="text" matInput [formControl]="control" [matAutocomplete]="auto" name="remitente" #remitente>
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let documento of filClients | async" [value]="documento">
+                            {{documento}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
             </div>
             <div class="form-group col-md-8">
-                <a href="#" class="stretched-link">Agregar Remitente</a>
+                <a routerLinkActive="active" routerLink="agregarCliente" class="link-primary">Agregar Remitente</a>
             </div>
             <div class="form-group col-md-8">
-                <label for="inputDestinatario">Destinatario</label>
-                <input type="text" class="form-control" id="inputDestinatario" placeholder="Peter Parker" formControlName="destinatario">
-                <span *ngIf="destinatario && destinatario.invalid && destinatario.touched" class="error-block">Destinatario invalido</span>
+                <mat-form-field>
+                    <mat-label>
+                        Destinatario
+                    </mat-label>
+                    <input type="text" matInput [formControl]="control" [matAutocomplete]="auto" name="destinatario" #destinatario>
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let documento of filClients | async" [value]="documento">
+                            {{documento}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
             </div>
             <div class="form-group col-md-8">
-                <a href="#" class="stretched-link">Agregar Destinatario</a>
+                <a routerLinkActive="active" routerLink="agregarCliente" class="link-primary">Agregar Destinatario</a>
             </div>
             <div class="form-control-lg">
             </div>
@@ -31,6 +47,8 @@
             <div class="form-control-lg">
             </div>
             <button type="submit" [disabled]="formPaquete.invalid" class="btn btn-dark">Ingresar</button>
+            <div class="form-control-lg">
+            </div>
         </div>
         <div class="column">
             <div class="form-group col-md-8">

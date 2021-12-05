@@ -32,11 +32,11 @@ namespace Api.Controllers
             return this.facutraBs.calcularPrecio(distancia, peso, grupo);
         }
 
-        [HttpGet]
+        [HttpPost]
         [ActionName ("CalcularPrecioFinal")]
-        public FacturaDto calcularMontoFinal([FromBody] FacturaDto factura)
+        public double calcularMontoFinal([FromBody] FacturaDto factura)
         {
-            return this.facutraBs.calcularMontoFinal(factura);
+            return this.facutraBs.calcularMontoFinal(factura).MontoFinal;
         }
 
     }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { map } from 'rxjs/operators';
+import { cliente } from '../../../components/models/cliente';
 
 @Injectable({
   providedIn: 'root'
@@ -12,26 +13,47 @@ export class ClientService {
 
   getQuery(query: string) {
 
-    const url = `https://localhost:8080/${query}`;
+    const url = `https://localhost:44318/api/Cliente/${query}`;
 
     return this.http.get(url)
   }
 
-  // Obtiene Lista Clientes
-  addClient() {
-    return this.getQuery('client')
-      .pipe(map(data => data));
+  getQueryWithData(query: string, data: string) {
+
+    const url = `https://localhost:44318/api/Cliente/${query}?busqueda=${data}`;
+
+    return this.http.get(url)
+  }
+
+
+  postQuery(query: string, body: any) {
+
+    const url = `https://localhost:44318/api/Cliente/${query}`;
+
+    return this.http.post(url, body)
   }
 
   // Obtiene Lista Clientes
-  getClientList() {
-    return this.getQuery('client')
-      .pipe(map(data => data));
+  addClient(cli: cliente) {
+    return this.postQuery('RegistrarCliente', cli)
+      .pipe(map(data => {
+        console.log(data);
+        data
+      }));
   }
 
-  // Obtiene un Cliente
-  getClient(id: string) {
-    return this.getQuery(`clients/${id}`)
-    .pipe(map (data =>  data ));
-  }
+    // Obtiene Lista Clientes
+    getClients(document: string) {
+      return this.getQueryWithData('BuscarCliente', document)
+        .pipe(map(data => data));
+    }
+
+    
+    // Obtiene Lista Clientes
+    getGroup(document: string) {
+      return this.getQueryWithData('BuscarClienteGrupo', document)
+        .pipe(map(data => data));
+    }
+
+
 }
