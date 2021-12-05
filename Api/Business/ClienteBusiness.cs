@@ -39,5 +39,10 @@ namespace Business
         {
             return this._clienteRepository.buscarClientes(busqueda);
         }
+
+        public List<ClienteDto> listaCliente()
+        {
+            return this._clienteRepository.listaClientes();
+        }
     }
 }

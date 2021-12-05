@@ -5,20 +5,36 @@
         <div class="column">
 
             <div class="form-group col-md-8">
-                <label for="inputRemitente">Remitente</label>
-                <input type="text" class="form-control" id="inputRemitente" placeholder="Jhon Smith" formControlName="remitente">
-                <span *ngIf="remitente && remitente.invalid && remitente.touched" class="error-block">Remitente invalido</span>
+                <mat-form-field>
+                    <mat-label>
+                        Pais
+                    </mat-label>
+                    <input type="text" matInput [formControl]="control" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let documento of filClients | async" [value]="documento">
+                            {{documento}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
             </div>
             <div class="form-group col-md-8">
-                <a href="#" class="stretched-link">Agregar Remitente</a>
+                <a routerLinkActive="active" routerLink="agregarCliente" class="link-primary">Agregar Remitente</a>
             </div>
             <div class="form-group col-md-8">
-                <label for="inputDestinatario">Destinatario</label>
-                <input type="text" class="form-control" id="inputDestinatario" placeholder="Peter Parker" formControlName="destinatario">
-                <span *ngIf="destinatario && destinatario.invalid && destinatario.touched" class="error-block">Destinatario invalido</span>
+                <mat-form-field>
+                    <mat-label>
+                        Pais
+                    </mat-label>
+                    <input type="text" matInput [formControl]="control" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let country of filClients | async" [value]="country">
+                            {{country}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
             </div>
             <div class="form-group col-md-8">
-                <a href="#" class="stretched-link">Agregar Destinatario</a>
+                <a routerLinkActive="active" routerLink="agregarCliente" class="link-primary">Agregar Destinatario</a>
             </div>
             <div class="form-control-lg">
             </div>

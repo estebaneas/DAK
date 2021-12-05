@@ -37,5 +37,12 @@ namespace Api.Controllers
         {
             return this._clienteBusiness.buscarCliente(busqueda);
         }
+
+        [HttpGet]
+        [ActionName("ListaCliente")]
+        public List<ClienteDto> listaCliente()
+        {
+            return this._clienteBusiness.listaCliente();
+        }
     }
 }

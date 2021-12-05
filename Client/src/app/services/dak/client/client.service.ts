@@ -13,10 +13,11 @@ export class ClientService {
 
   getQuery(query: string) {
 
-    const url = `https://localhost:8080/${query}`;
+    const url = `https://localhost:44318/api/Cliente/${query}`;
 
     return this.http.get(url)
   }
+
 
   postQuery(query: string, body: any) {
 
@@ -34,15 +35,11 @@ export class ClientService {
       }));
   }
 
-  // Obtiene Lista Clientes
-  getClientList() {
-    return this.getQuery('client')
-      .pipe(map(data => data));
-  }
+    // Obtiene Lista Clientes
+    getClients() {
+      return this.getQuery('ListaCliente')
+        .pipe(map(data => data));
+    }
 
-  // Obtiene un Cliente
-  getClient(id: string) {
-    return this.getQuery(`clients/${id}`)
-    .pipe(map (data =>  data ));
-  }
+
 }
