@@ -44,7 +44,6 @@
     <Compile Include="Dtos\ClienteDto.cs" />
     <Compile Include="Dtos\CondadoDto.cs" />
     <Compile Include="Dtos\EmpresaDto.cs" />
-    <Compile Include="Dtos\CondadoDto.cs" />
     <Compile Include="Dtos\FacturaDto.cs" />
     <Compile Include="Dtos\FiltroPaquetes.cs" />
     <Compile Include="Dtos\Mensajes.cs" />
