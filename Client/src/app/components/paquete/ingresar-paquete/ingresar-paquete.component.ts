@@ -33,6 +33,7 @@ export class IngresarPaqueteComponent implements OnInit {
     this.condadoService.getCondadoList()
       .subscribe((data: any) => {
         this.condados = data;
+        console.log(data);
         this.loading = false;
       });
 
@@ -75,14 +76,14 @@ export class IngresarPaqueteComponent implements OnInit {
   pagar(paquete: paquete, remitente: string, destrinatario: string) {
 
 
-    paquete.remitente = remitente,
-    paquete.destinatario = destrinatario,
-    paquete.calle = this.formPaquete.value['calle'],
-    paquete.condado = this.formPaquete.value['condado'],
-    paquete.distancia = this.condados.find(f => f.Nombre == this.formPaquete.value['condado']).Distancia,
-    paquete.localidad = this.formPaquete.value['localidad'],
-    paquete.detalle = this.formPaquete.value['detalle'],
-    paquete.peso = this.formPaquete.value['peso'],
+    paquete.DocumentoRemitente = remitente,
+    paquete.DocumentoDestinatario = destrinatario,
+    paquete.Calle = this.formPaquete.value['calle'],
+    paquete.Distancia = this.condados.find(f => f.Nombre == this.formPaquete.value['condado']).Distancia,
+    paquete.ID_Condado = this.condados.find(f => f.Nombre == this.formPaquete.value['condado']).ID,
+    paquete.Localidad = this.formPaquete.value['localidad'],
+    paquete.DetalleDireccion = this.formPaquete.value['detalle'],
+    paquete.Peso = this.formPaquete.value['peso'],
     paquete.grupo = this.formPaquete.value['grupo']
 
     //Se guarda en localStorage

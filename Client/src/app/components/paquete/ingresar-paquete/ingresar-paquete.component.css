@@ -5,3 +5,9 @@
 .column {
     flex: 50%;
 }
+
+.contenedor {
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+}

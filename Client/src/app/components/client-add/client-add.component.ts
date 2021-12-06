@@ -5,6 +5,7 @@ import { empresa } from '../models/empresa';
 import { persona } from '../models/persona';
 import { CondadoService } from 'src/app/services/dak/condado/condado.service';
 import { ClientService } from '../../services/dak/client/client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-add',
@@ -24,7 +25,8 @@ export class ClientAddComponent {
   ];
 
   constructor(private condadoService: CondadoService,
-              private clienteServie: ClientService) { 
+              private clienteServie: ClientService,
+              private router: Router) { 
 
     this.condadoService.getCondadoList()
     .subscribe((data: any) => {
@@ -59,6 +61,8 @@ export class ClientAddComponent {
       this.loading = false;
     });
 
+    this.router.navigateByUrl('/home');
+
   }
 
   mapearCliente() {
@@ -76,12 +80,15 @@ export class ClientAddComponent {
       rut : this.formCliente.value['rut'],
       razon_social : this.formCliente.value['razonSocial'],
     }
+    console.log(emp.razon_social);
+    console.log(this.formCliente.value['documento']);
 
-    if(emp.razon_social != null){
+    if(emp.razon_social){
       tipoDocumento = 0,
       docu = this.formCliente.value['rut']
     }
     else{
+      tipoDocumento = 1,
       docu = this.formCliente.value['documento']
     }
 

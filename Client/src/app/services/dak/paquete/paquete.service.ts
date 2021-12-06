@@ -1,3 +1,9 @@
+
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { paquete } from 'src/app/components/models/paquete';
+import { pagoPaquete } from '../../../components/models/pagoPaquete';
 import { destroyPlatform, Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,7 +11,24 @@ import { destroyPlatform, Injectable } from '@angular/core';
 })
 export class PaqueteService {
 
-  constructor() { }
+
+  constructor(private http: HttpClient) { }
+
+  
+  postQueryData(query: string, data: any) {
+
+    const url = `https://localhost:44318/api/Paquete/${query}`;
+    console.log(data + "LLEGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+
+    return this.http.post(url, data, {headers: { 'Content-Type': 'application/json' }});
+  }
+  
+  registrarPaquete(paquete: paquete) {
+    console.log("LLEGO ESTE PAQUETEEEEEEEEEEE" + JSON.stringify(paquete))
+    return this.postQueryData("RegistrarPaquete", JSON.stringify(paquete))
+    .pipe(map(data => data));
+  }
+
 
   async getPaquetes(filtro:any)
   {
@@ -27,5 +50,4 @@ export class PaqueteService {
     
   }
 }
-
 
