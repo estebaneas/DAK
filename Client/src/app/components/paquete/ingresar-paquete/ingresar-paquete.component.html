@@ -1,6 +1,10 @@
 <app-loading *ngIf="loading" class="m-5"></app-loading>
 
-<form [formGroup]="formPaquete" (ngSubmit)="pagar(formPaquete.value, remitente.value, destinatario.value)" *ngIf="!loading" class="animated fadeIn">
+<form [formGroup]="formPaquete" (ngSubmit)="pagar(formPaquete.value, remitente.value, destinatario.value)" *ngIf="!loading" class="animated fadeIn contenedor">
+    <h1>Ingresar Paquete</h1>
+    <small class="text-muted">Complete el formulario con los datos del paquete que desea ingresar. Seleccionando el Cliente Remitente y el Cliente Destinatario.</small>
+    <div class="form-control-lg">
+    </div>
     <div class="row">
         <div class="column">
 
@@ -18,7 +22,7 @@
                 </mat-form-field>
             </div>
             <div class="form-group col-md-8">
-                <a routerLinkActive="active" routerLink="agregarCliente" class="link-primary">Agregar Remitente</a>
+                <button type="button" routerLink="/agregarCliente" class="btn btn-outline-secondary">Agregar Remitente</button>
             </div>
             <div class="form-group col-md-8">
                 <mat-form-field>
@@ -34,7 +38,7 @@
                 </mat-form-field>
             </div>
             <div class="form-group col-md-8">
-                <a routerLinkActive="active" routerLink="agregarCliente" class="link-primary">Agregar Destinatario</a>
+                <button type="button" routerLink="/agregarCliente" class="btn btn-outline-secondary">Agregar Destinatario</button>
             </div>
             <div class="form-control-lg">
             </div>
@@ -46,7 +50,7 @@
             </div>
             <div class="form-control-lg">
             </div>
-            <button type="submit" [disabled]="formPaquete.invalid" class="btn btn-dark">Ingresar</button>
+            <button type="submit" [disabled]="formPaquete.invalid" class="btn btn-dark">Ir a pago</button>
             <div class="form-control-lg">
             </div>
         </div>

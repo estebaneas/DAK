@@ -22,8 +22,7 @@ export class PagoService {
   getQueryData(query: string, data: any) {
 
     const url = `https://localhost:44318/api/Factura/${query}`;
-    console.log("Entro a getQueryData con esta data: " + data)
-    
+    console.log(data + "LLEGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
 
     return this.http.post(url, data, {headers: { 'Content-Type': 'application/json' }});
   }
@@ -35,14 +34,15 @@ export class PagoService {
     return this.http.get(url)
   }
 
-  pagar() {
+  pagar(factura: pagoPaquete) {
     //TODO Llamar al metodo de pagar y luego al metodo de guardar paquete
+    return this.getQueryData("PagarFactura", JSON.stringify(factura))
+    .pipe(map(data => data));
   }
 
   
   getCalcularPrecioDescuento(factura: pagoPaquete)
   {
-    console.log("llego al servicio getCalcularPrecioDescuento con esta data: " + JSON.stringify(factura));
     factura.FechaDepago = new Date();
     return this.getQueryData("CalcularPrecioFinal", JSON.stringify(factura))
     .pipe(map(data => data));
