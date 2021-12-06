@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { paquete } from 'src/app/components/models/paquete';
-import { pagoPaquete } from '../../../components/models/pagoPaquete';
+import { pagoPaquete } from 'src/app/components/models/pagoPaquete';
 
 @Injectable({
   providedIn: 'root'

@@ -1,10 +1,9 @@
 
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+
 import { map } from 'rxjs/operators';
 import { paquete } from 'src/app/components/models/paquete';
-import { pagoPaquete } from '../../../components/models/pagoPaquete';
-import { destroyPlatform, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
