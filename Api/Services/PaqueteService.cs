@@ -46,6 +46,7 @@ namespace Services
                 }
             }
             paquete.TrackingNumero = trackingNumero;
+            paquete.ID_Zona = 1;
             return this._paqueteRepository.registrarPaquete(paquete);
         }
     }
