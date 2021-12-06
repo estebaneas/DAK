@@ -21,5 +21,6 @@ namespace CommonSolution.Dtos
         public int Numero_Factura { get; set; }
         public int Tamano { get; set; }
         public string TrackingNumero { get; set; }
+  
     }
 }

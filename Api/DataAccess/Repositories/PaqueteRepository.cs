@@ -44,5 +44,97 @@ namespace DataAccess.Repositories
                 }
             }
         }
+
+        public List<PaqueteDto> getPaquetes(FiltroPaquetes filtro)
+        {
+            using (DAKEntities context = new DAKEntities())
+            {
+                return this._paqueteMapper.toDto(context.Paquete.AsNoTracking().OrderByDescending(p=>p.ID).Skip(filtro.paginasPorHoja * (filtro.paginaActual - 1)).Take(filtro.paginasPorHoja).ToList());
+            }
+        }
+        public int getTotPaquetes()
+        {
+            using (DAKEntities context = new DAKEntities())
+            {
+                return context.Paquete.AsNoTracking().Count();
+            }
+        }
+
+
+        public List<PaqueteDto> getPaquetePortTracking(FiltroPaquetes filtro)
+        {
+            using (DAKEntities context = new DAKEntities())
+            {
+                return this._paqueteMapper.toDto(context.Paquete.AsNoTracking().OrderByDescending(P=>P.ID).Where(p=>p.TrackingNumero==filtro.tracking).Skip(filtro.paginasPorHoja * (filtro.paginaActual-1)).Take(filtro.paginasPorHoja).ToList());
+            }
+        }
+
+        public List<PaqueteDto> getPaquetePorFecha(FiltroPaquetes filtro)
+        {
+            using (DAKEntities context = new DAKEntities())
+            {
+                return  this._paqueteMapper.toDto(context.Paquete.AsNoTracking().OrderByDescending(p=>p.ID).Where(p => p.FechaRecivido == filtro.fechaRecibido).Skip(filtro.paginasPorHoja * (filtro.paginaActual - 1)).Take(filtro.paginasPorHoja).ToList());
+            }
+        }
+
+        public int getTotPaquetePorFecha(FiltroPaquetes filtro)
+        {
+            using (DAKEntities context = new DAKEntities())
+            {
+                return context.Paquete.AsNoTracking().Where(p => p.FechaRecivido == filtro.fechaRecibido).Count();
+            }
+        }
+
+        public List<PaqueteDto> getPaquetePorDestinatario(FiltroPaquetes filtro)
+        {
+            using (DAKEntities context = new DAKEntities())
+            {
+                return this._paqueteMapper.toDto(context.Paquete.AsNoTracking().OrderByDescending(p=>p.ID).Where(p => p.DocumentoDestinatario == filtro.documentoDestinatario).Skip(filtro.paginasPorHoja * (filtro.paginaActual - 1)).Take(filtro.paginasPorHoja).ToList());
+            }
+        }
+        public int getTotPaquetePorDestinatario(FiltroPaquetes filtro)
+        {
+            using (DAKEntities context = new DAKEntities())
+            {
+                return context.Paquete.AsNoTracking().Where(p => p.DocumentoDestinatario == filtro.documentoDestinatario).Count();
+
+            }
+        }
+        public List<PaqueteDto> getPaquetePorRemitente(FiltroPaquetes filtro)
+        {
+            using (DAKEntities context = new DAKEntities())
+            {
+                return this._paqueteMapper.toDto(context.Paquete.AsNoTracking().OrderByDescending(p => p.ID).Where(p => p.DocumentoRemitente == filtro.documentoRemitente).Skip(filtro.paginasPorHoja * (filtro.paginaActual - 1)).Take(filtro.paginasPorHoja).ToList());
+            }
+        }
+
+        public int getTotPaquetePorRemitente(FiltroPaquetes filtro)
+        {
+            using (DAKEntities context = new DAKEntities())
+            {
+                return context.Paquete.AsNoTracking().Where(p => p.DocumentoRemitente == filtro.documentoRemitente).Count();
+            }
+        }
+
+        public List<PaqueteDto> getPaquetePorEstado(FiltroPaquetes filtro)
+        {
+            using (DAKEntities context = new DAKEntities())
+            {
+                return this._paqueteMapper.toDto(context.Paquete.AsNoTracking().OrderByDescending(p=>p.ID).Where(p => p.Estado == filtro.estado).Skip(filtro.paginasPorHoja * (filtro.paginaActual - 1)).Take(filtro.paginasPorHoja).ToList());
+            }
+        }
+
+        public int getTotPaquetePorEstado(FiltroPaquetes filtro)
+        {
+            using (DAKEntities context = new DAKEntities())
+            {
+                return context.Paquete.AsNoTracking().Where(p => p.Estado == filtro.estado).Count();
+            }
+        }
+
+
+
+
+
     }
 }
